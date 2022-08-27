@@ -9,6 +9,7 @@ export default function MyPage() {
     const [point, setPoint] = useState(35);
     const [orderNum, setOrderNum] = useState(1);
 
+
     return (
         <>
             <Navbar />
