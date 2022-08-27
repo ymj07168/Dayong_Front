@@ -22,7 +22,6 @@ function App() {
     <>
       <Router>
         <Routes>
-<<<<<<< HEAD
           <Route path='/' element={<Home />} />
           <Route path='/main' element={<Main />} />
           <Route path='/login' element={<Loginpage />} />
@@ -31,16 +30,6 @@ function App() {
           <Route path='/option/:menuname' element={<Option />} />
           <Route path='/mypage' element={<MyPage />} />
           <Route path='/mapinfo' element={<MapInfo />} />
-=======
-          <Route path='/' element={<Home />}/>
-          <Route path='/main' element={<Main />}/>
-          <Route path='/login' element={<Loginpage />}/>
-          <Route path='/join' element={<Joinpage />}/>
-          <Route path='/menu' element={<Menu />}/>
-          <Route path='/option/:menuname' element={<Option />}/>
-          <Route path='/order' element={<Order />}/>
-
->>>>>>> 24f1a99c6f34ac006af749ec63ff399519824f4c
         </Routes>
       </Router>
     </>
