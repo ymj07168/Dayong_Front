@@ -38,7 +38,7 @@ const Join = () => {
   const [passwordError, setPasswordError] = useState('');
   const [nameError, setNameError] = useState('');
   const [registerError, setRegisterError] = useState('');
-  
+
   const history = useNavigate();
 
   const handleAgree = (event) => {
@@ -129,7 +129,7 @@ const Join = () => {
             <FormControl component="fieldset" variant="standard">
               
               <Grid container spacing={2}>
-              <Grid item xs={12}>
+              <Grid item xs={10}>
                   <TextField
                     required
                     fullWidth
@@ -141,7 +141,7 @@ const Join = () => {
                 </Grid>
                 <FormHelperTexts>{nameError}</FormHelperTexts>
 
-                <Grid item xs={12}>
+                <Grid item xs={10}>
                   <TextField
                     required
                     fullWidth
@@ -153,7 +153,7 @@ const Join = () => {
                   />
                 </Grid>
                 <FormHelperTexts>{emailError}</FormHelperTexts>
-                <Grid item xs={12}>
+                <Grid item xs={10}>
                   <TextField
                     required
                     fullWidth
@@ -165,7 +165,7 @@ const Join = () => {
                   />
                 </Grid>
                 <FormHelperTexts>{passwordState}</FormHelperTexts>
-                <Grid item xs={12}>
+                <Grid item xs={10}>
                   <TextField
                     required
                     fullWidth
@@ -177,7 +177,7 @@ const Join = () => {
                   />
                 </Grid>
                 <FormHelperTexts>{passwordError}</FormHelperTexts>
-                <Grid item xs={12}>
+                <Grid item xs={10}>
                   <FormControlLabel
                     control={<Checkbox onChange={handleAgree} color="primary" />}
                     label="회원가입 약관에 동의합니다."

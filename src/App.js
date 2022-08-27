@@ -4,10 +4,11 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './routes/Home';
 import Main from './routes/Main';
-import Loginpage from './routes/Loginpage';
-import Joinpage from './routes/Joinpage';
+import Loginpage from './routes/Login';
+import Joinpage from './routes/Join';
 import Menu from './routes/Menu';
 import Option from './routes/Option.js';
+import Order from './routes/Order.js';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route path='/join' element={<Joinpage />}/>
           <Route path='/menu' element={<Menu />}/>
           <Route path='/option/:menuname' element={<Option />}/>
+          <Route path='/order' element={<Order />}/>
 
         </Routes>
       </Router>
