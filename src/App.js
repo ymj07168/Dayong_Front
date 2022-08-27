@@ -13,6 +13,7 @@ import Orderpackage from "./routes/Orderpackage"
 import Basket from './routes/Basket.js'
 import MyPage from './routes/MyPage';
 import MapInfo from './routes/MapInfo';
+import OrderDetail from './routes/OrderDetail';
 
 function App() {
 
@@ -32,7 +33,7 @@ function App() {
           <Route path='/orderpackage' element={<Orderpackage />}/>
           <Route path='/mypage' element={<MyPage />} />
           <Route path='/mapinfo' element={<MapInfo />} />
-
+          <Route path='/order-detail' element={<OrderDetail />} />
 
         </Routes>
       </Router>
