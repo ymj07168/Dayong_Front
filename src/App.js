@@ -1,33 +1,34 @@
-import Home from "./routes/Home.js";
-import Menu from "./routes/Menu.js";
 
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-} from "react-router-dom";
-
-import { useState } from "react";
-import { useEffect } from "react";
-import axios from "axios";
-import Join from "./routes/Joinpage.js";
-import Login from "./components/Login.js";
-
-
+import React from 'react';
+import './App.css';
+import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './routes/Home';
+import Main from './routes/Main';
+import Loginpage from './routes/Loginpage';
+import Joinpage from './routes/Joinpage';
+import Menu from './routes/Menu';
+import Option from './routes/Option.js';
 
 function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/join" element={<Join />} />
-        <Route path="/login" element={<Login />} />
-      
-      </Routes>
-    </Router>
 
+
+
+
+  return (
+
+    <>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home />}/>
+          <Route path='/main' element={<Main />}/>
+          <Route path='/login' element={<Loginpage />}/>
+          <Route path='/join' element={<Joinpage />}/>
+          <Route path='/menu' element={<Menu />}/>
+          <Route path='/option/:menuname' element={<Option />}/>
+        </Routes>
+      </Router>
+    </>
   );
 }
 

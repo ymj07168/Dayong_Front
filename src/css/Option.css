@@ -1,0 +1,11 @@
+.basketbutton {
+    width: 250px;
+    font-size: 20px;
+    position: absolute;
+    top: 600px;
+    left: 75px;
+}
+
+.option {
+    height: 700px;
+}
