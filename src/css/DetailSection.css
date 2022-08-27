@@ -1,0 +1,14 @@
+.detail-info {
+    padding: 3rem;
+    background: #fff;
+    margin-top: -200px;
+}
+
+p {
+    font-size: 15px;
+    text-align: left;
+}
+
+.location {
+    font-size: 12px;
+}

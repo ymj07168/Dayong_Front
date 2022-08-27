@@ -1,7 +1,6 @@
 
 import React from 'react';
 import './App.css';
-import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './routes/Home';
 import Main from './routes/Main';
@@ -26,6 +25,7 @@ function App() {
           <Route path='/join' element={<Joinpage />}/>
           <Route path='/menu' element={<Menu />}/>
           <Route path='/option/:menuname' element={<Option />}/>
+
         </Routes>
       </Router>
     </>
