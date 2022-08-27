@@ -1,12 +1,16 @@
 .detail-info {
     padding: 3rem;
     background: #fff;
-    margin-top: -200px;
+    margin-top: -280px;
+    display: flex;
+    justify-content: center;
 }
 
-p {
+.detail-info-p {
     font-size: 15px;
     text-align: left;
+    line-height: 25px;
+
 }
 
 .location {

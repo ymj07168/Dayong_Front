@@ -5,7 +5,7 @@ body {
 ul {
     list-style: none;
     padding-left: 0px;
-  }
+}
 
 .title {
     font-size: 50px;
@@ -19,6 +19,7 @@ ul {
     align-Items: center;
     height: 100%;
 }
+
 .buttongroup {
 
     display: flex;
@@ -38,16 +39,16 @@ ul {
 
 .login {
     width: 200px;
-    height: inherit;    
+    height: inherit;
     font-size: 24px;
     border-radius: 15px;
     border: 0px;
 
 }
 
-.join{
+.join {
     width: 200px;
-    height: inherit;    
+    height: inherit;
     font-size: 24px;
     border-radius: 15px;
     border: 0px;

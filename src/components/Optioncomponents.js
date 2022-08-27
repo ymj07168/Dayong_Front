@@ -43,7 +43,6 @@ const Optioncomponents = () => {
     }
     return (
         <div className='option'>
-
             <p className="menuname">{findItem.name}</p>
             <p className="menuprice">{findItem.price}</p>
             <div>
@@ -51,7 +50,6 @@ const Optioncomponents = () => {
                 <p>{quantity}</p>
                 <button name="dec" onClick={handleDecrement}> - </button>
             </div>
-
 
             <button className="basketbutton" type="button" onClick={onClick}>장바구니 추가</button>
         </div>
