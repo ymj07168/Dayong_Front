@@ -10,6 +10,7 @@ import Menu from './routes/Menu';
 import Option from './routes/Option.js';
 import MyPage from './routes/MyPage';
 import MapInfo from './routes/MapInfo';
+import OrderDetail from './routes/OrderDetail';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           <Route path='/option/:menuname' element={<Option />} />
           <Route path='/mypage' element={<MyPage />} />
           <Route path='/mapinfo' element={<MapInfo />} />
+          <Route path='/order-detail' element={<OrderDetail />} />
         </Routes>
       </Router>
     </>

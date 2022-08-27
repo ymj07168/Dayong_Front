@@ -1,0 +1,30 @@
+.mypage-container {
+    justify-content: center;
+    margin-top: 150px;
+    text-align: center;
+}
+
+.myinfo {
+    font-size: large;
+    margin-top: 10px;
+}
+
+/* 포인트+주문내역 정보 */
+.mypage-detail {
+    font-size: large;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.point-info {
+    padding: 30px;
+    border: 1px solid;
+    margin: 10px;
+}
+
+.order-info {
+    padding: 30px;
+    border: 1px solid;
+    margin: 10px;
+}
