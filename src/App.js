@@ -11,11 +11,10 @@ import Option from './routes/Option.js';
 import Orderdeliver from "./routes/Orderdeliver";
 import Orderpackage from "./routes/Orderpackage"
 import Basket from './routes/Basket.js'
+import MyPage from './routes/MyPage';
+import MapInfo from './routes/MapInfo';
 
 function App() {
-
-
-
 
   return (
 
@@ -31,6 +30,9 @@ function App() {
           <Route path='/basket' element={<Basket />}/>
           <Route path='/orderdelivery' element={<Orderdeliver />}/>
           <Route path='/orderpackage' element={<Orderpackage />}/>
+          <Route path='/mypage' element={<MyPage />} />
+          <Route path='/mapinfo' element={<MapInfo />} />
+
 
         </Routes>
       </Router>

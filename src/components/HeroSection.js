@@ -10,7 +10,7 @@ function HeroSection() {
 
     return (
         <div className='hero-container'>
-            <img src={mainImg} style={{ width: "400px", height: "250px" }} />
+            <img className="main-img" src={mainImg} style={{ width: "400px", height: "250px" }} />
             <div className='hero-info'>
                 <h2>최고네 한식점</h2>
             </div>

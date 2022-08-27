@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-import Ordercomponents from "../components/Ordercomponents"
+import Basketcomponents from "../components/Basketcomponents"
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 import '../css/Basket.css'
@@ -7,10 +7,9 @@ import '../css/Basket.css'
 const Order = () => {
     const [price, setPrice] = useState(0);
     var basketoption = {
-        name: '', 
-        method: '',
-        basket: '',
-        price: '',
+        name: '',       //주문하는 사람 이름
+        basket: {},     //장바구니에 있던 거 이름
+        price: '',      //장바구니 총 가격
 
         
     }
@@ -42,7 +41,7 @@ const Order = () => {
     return (
         <div>
             <Navbar />
-            <Ordercomponents />
+            <Basketcomponents />
             <div className="basketprice">
                 <p >총 {price} 원</p>
 
