@@ -47,6 +47,9 @@
 
 .nav-item {
     height: 80px;
+    margin: 10px;
+    position: relative;
+    top: -300px;
 }
 
 .nav-links {

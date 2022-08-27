@@ -7,7 +7,7 @@ const Order = () => {
 
     return (
         <div>
-            <Navbar/>
+            <Navbar />
             <Ordercomponents />
         </div>
     )

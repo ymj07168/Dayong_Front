@@ -43,12 +43,12 @@ function Navbar() {
                     </div>
                     <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                         <li className='nav-item'>
-                            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                            <Link to='/main' className='nav-links' onClick={closeMobileMenu}>
                                 홈
                             </Link>
                         </li>
                         <li className='nav-item'>
-                            <Link to='/services' className='nav-links' onClick={closeMobileMenu}>
+                            <Link to='/mypage' className='nav-links' onClick={closeMobileMenu}>
                                 마이페이지
                             </Link>
                         </li>
@@ -58,7 +58,7 @@ function Navbar() {
                             </Link>
                         </li> */}
                         <li className='nav-item'>
-                            <Link to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenu}>
+                            <Link to='/login' className='nav-links-mobile' onClick={closeMobileMenu}>
                                 로그아웃
                             </Link>
                         </li>

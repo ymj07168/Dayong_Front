@@ -5,17 +5,17 @@ import '../css/Option.css'
 const Optioncomponents = () => {
     const [quantity, setQuantity] = useState(0);
     const handleIncrement = () => {
-        setQuantity((prev) => prev+1);
+        setQuantity((prev) => prev + 1);
     }
     const handleDecrement = () => {
-        if(quantity > 0) {
-            setQuantity((prev) => prev-1)
+        if (quantity > 0) {
+            setQuantity((prev) => prev - 1)
 
         }
     }
 
 
-    let {menuname} = useParams(); 
+    let { menuname } = useParams();
     const Menu = [
         {
             name: '마약파전',
@@ -34,29 +34,27 @@ const Optioncomponents = () => {
             price: 4000,
         }]
 
-        let findItem = Menu.find((item) => {
-            return item.name == menuname;
-        });
-    
-        const onClick =() => {
-            
-        }
+    let findItem = Menu.find((item) => {
+        return item.name == menuname;
+    });
+
+    const onClick = () => {
+
+    }
     return (
         <div className='option'>
-            
-        <p className="menuname">{findItem.name}</p>                
-        <p className="menuprice">{findItem.price}</p>
-        <div>
-          <button name="inc" onClick={handleIncrement}> + </button>
-          <p>{quantity}</p>
-          <button name="dec" onClick={handleDecrement}> - </button>
-        </div>
-        
+            <p className="menuname">{findItem.name}</p>
+            <p className="menuprice">{findItem.price}</p>
+            <div>
+                <button name="inc" onClick={handleIncrement}> + </button>
+                <p>{quantity}</p>
+                <button name="dec" onClick={handleDecrement}> - </button>
+            </div>
 
             <button className="basketbutton" type="button" onClick={onClick}>장바구니 추가</button>
         
         </div>
-        
+
     )
 }
 
