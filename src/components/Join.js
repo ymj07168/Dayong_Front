@@ -38,7 +38,7 @@ const Join = () => {
   const [passwordError, setPasswordError] = useState('');
   const [nameError, setNameError] = useState('');
   const [registerError, setRegisterError] = useState('');
-  
+
   const history = useNavigate();
 
   const handleAgree = (event) => {
@@ -53,7 +53,7 @@ const Join = () => {
     await axios
       .post('/member/join', postData)
       .then(function (response) {
-        alert('회원가입이 완료되었습니다.')        
+        alert('회원가입이 완료되었습니다.')
         history.push('/login');
       })
       .catch(function (err) {
@@ -110,95 +110,95 @@ const Join = () => {
 
   return (
     <div className=''>
-    <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} />
-          <Typography component="h1" variant="h5">
-            회원가입
-          </Typography>
-          <Boxs component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <FormControl component="fieldset" variant="standard">
-              
-              <Grid container spacing={2}>
-              <Grid item xs={12}>
-                  <TextField
-                    required
-                    fullWidth
-                    id="name"
-                    name="name"
-                    label="아이디"
-                    error={nameError !== '' || false}
-                  />
-                </Grid>
-                <FormHelperTexts>{nameError}</FormHelperTexts>
+      <ThemeProvider theme={theme}>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 8,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} />
+            <Typography component="h1" variant="h5">
+              회원가입
+            </Typography>
+            <Boxs component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+              <FormControl component="fieldset" variant="standard">
 
-                <Grid item xs={12}>
-                  <TextField
-                    required
-                    fullWidth
-                    type="email"
-                    id="email"
-                    name="email"
-                    label="이메일 주소"
-                    error={emailError !== '' || false}
-                  />
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <TextField
+                      required
+                      fullWidth
+                      id="name"
+                      name="name"
+                      label="아이디"
+                      error={nameError !== '' || false}
+                    />
+                  </Grid>
+                  <FormHelperTexts>{nameError}</FormHelperTexts>
+
+                  <Grid item xs={12}>
+                    <TextField
+                      required
+                      fullWidth
+                      type="email"
+                      id="email"
+                      name="email"
+                      label="이메일 주소"
+                      error={emailError !== '' || false}
+                    />
+                  </Grid>
+                  <FormHelperTexts>{emailError}</FormHelperTexts>
+                  <Grid item xs={12}>
+                    <TextField
+                      required
+                      fullWidth
+                      type="password"
+                      id="password"
+                      name="password"
+                      label="비밀번호 (숫자+영문자+특수문자 8자리 이상)"
+                      error={passwordState !== '' || false}
+                    />
+                  </Grid>
+                  <FormHelperTexts>{passwordState}</FormHelperTexts>
+                  <Grid item xs={12}>
+                    <TextField
+                      required
+                      fullWidth
+                      type="password"
+                      id="rePassword"
+                      name="rePassword"
+                      label="비밀번호 재입력"
+                      error={passwordError !== '' || false}
+                    />
+                  </Grid>
+                  <FormHelperTexts>{passwordError}</FormHelperTexts>
+                  <Grid item xs={12}>
+                    <FormControlLabel
+                      control={<Checkbox onChange={handleAgree} color="primary" />}
+                      label="회원가입 약관에 동의합니다."
+                    />
+                  </Grid>
                 </Grid>
-                <FormHelperTexts>{emailError}</FormHelperTexts>
-                <Grid item xs={12}>
-                  <TextField
-                    required
-                    fullWidth
-                    type="password"
-                    id="password"
-                    name="password"
-                    label="비밀번호 (숫자+영문자+특수문자 8자리 이상)"
-                    error={passwordState !== '' || false}
-                  />
-                </Grid>
-                <FormHelperTexts>{passwordState}</FormHelperTexts>
-                <Grid item xs={12}>
-                  <TextField
-                    required
-                    fullWidth
-                    type="password"
-                    id="rePassword"
-                    name="rePassword"
-                    label="비밀번호 재입력"
-                    error={passwordError !== '' || false}
-                  />
-                </Grid>
-                <FormHelperTexts>{passwordError}</FormHelperTexts>
-                <Grid item xs={12}>
-                  <FormControlLabel
-                    control={<Checkbox onChange={handleAgree} color="primary" />}
-                    label="회원가입 약관에 동의합니다."
-                  />
-                </Grid>
-              </Grid>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-                size="large"
-              >
-                회원가입
-              </Button>
-            </FormControl>
-            <FormHelperTexts>{registerError}</FormHelperTexts>
-          </Boxs>
-        </Box>
-      </Container>
-    </ThemeProvider>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                  size="large"
+                >
+                  회원가입
+                </Button>
+              </FormControl>
+              <FormHelperTexts>{registerError}</FormHelperTexts>
+            </Boxs>
+          </Box>
+        </Container>
+      </ThemeProvider>
     </div>
   );
 };

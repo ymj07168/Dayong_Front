@@ -3,7 +3,7 @@ import Join from "../components/Join.js"
 const Joinpage = () => {
     return (
         <div>
-            <Join/>
+            <Join />
         </div>
     )
 }

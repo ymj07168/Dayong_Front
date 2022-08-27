@@ -3,7 +3,7 @@ import Login from "../components/Login.js"
 const Loginpage = () => {
     return (
         <div>
-            <Login/>
+            <Login />
         </div>
     )
 }

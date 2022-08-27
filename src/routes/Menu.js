@@ -22,7 +22,7 @@ const Menu = () => {
 
     return (
         <div>
-            <Navbar/>
+            <Navbar />
             {Menu.map((item) => <Menucomponets key={item.name} name={item.name} price={item.price} />)}
         </div>
     )

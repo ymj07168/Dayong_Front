@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import '../css/Menu.css'
 
-const Menucomponents = ({name, price}) => {
+const Menucomponents = ({ name, price }) => {
 
     return (
         <div>
@@ -10,7 +10,7 @@ const Menucomponents = ({name, price}) => {
                 <h3>{price}</h3>
             </div></Link>
         </div>
-        
+
     )
 }
 
