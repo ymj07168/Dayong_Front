@@ -48,7 +48,7 @@ const Login = () => {
 
     // post
     await axios
-      .post('/member/join', postData)
+      .post('/login', postData)
       .then(function (response) {
         console.log(response, '성공');
         history.push('/login');
