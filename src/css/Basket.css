@@ -1,0 +1,60 @@
+a {
+    text-decoration: none;
+    
+}
+
+.orderdelivery {
+    
+    width: 150px;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    border: 3px solid;
+    border-radius: 15px;
+    margin-right: 30px;
+    
+}
+
+.orderpackage {
+    
+    width: 150px;
+    border: 3px solid;
+    border-radius: 15px;
+
+    
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+}
+
+
+.basketprice {
+    position: relative;
+    top: 500px;
+    
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    
+}
+
+.orderbox {
+    border: 5px solid;
+    margin: 5px;
+    padding-left: 15px; 
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.ordercontent {
+    line-height: 30px;
+}
+
+.orderbutton {
+    position: absolute;
+    top: 740px;
+    width: 400px;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+}

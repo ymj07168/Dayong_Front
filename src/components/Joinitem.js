@@ -27,7 +27,10 @@ const FormHelperTexts = styled(FormHelperText)`
 `;
 
 const Boxs = styled(Box)`
+  position: absolute;
+  top: 200px;
   padding-bottom: 40px !important;
+  width: 300px;
 `;
 
 const Join = () => {
