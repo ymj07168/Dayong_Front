@@ -8,12 +8,8 @@ import Loginpage from './routes/Login';
 import Joinpage from './routes/Join';
 import Menu from './routes/Menu';
 import Option from './routes/Option.js';
-<<<<<<< HEAD
 import MyPage from './routes/MyPage';
 import MapInfo from './routes/MapInfo';
-=======
-import Order from './routes/Order.js';
->>>>>>> 24f1a99c6f34ac006af749ec63ff399519824f4c
 
 function App() {
 
