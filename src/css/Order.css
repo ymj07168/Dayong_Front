@@ -1,0 +1,21 @@
+.orderbox {
+    border: 5px solid;
+    margin: 5px;
+    padding-left: 15px; 
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.ordercontent {
+    line-height: 30px;
+}
+
+.orderprice {
+    position: relative;
+    top: 500px;
+    
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    
+}

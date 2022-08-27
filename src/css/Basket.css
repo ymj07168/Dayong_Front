@@ -1,0 +1,42 @@
+a {
+    text-decoration: none;
+    
+}
+
+.orderdelivery {
+    position: relative;
+    top: 520px;
+    left: 30px;
+    width: 150px;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    border: 3px solid;
+    border-radius: 15px;
+    
+}
+
+.orderpackage {
+    position: relative;
+    top: 492px;
+    left: 220px;
+    width: 150px;
+    border: 3px solid;
+    border-radius: 15px;
+
+    
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+}
+
+
+.basketprice {
+    position: relative;
+    top: 500px;
+    
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    
+}

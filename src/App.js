@@ -8,7 +8,9 @@ import Loginpage from './routes/Login';
 import Joinpage from './routes/Join';
 import Menu from './routes/Menu';
 import Option from './routes/Option.js';
-import Order from './routes/Order.js';
+import Orderdeliver from "./routes/Orderdeliver";
+import Orderpackage from "./routes/Orderpackage"
+import Basket from './routes/Basket.js'
 
 function App() {
 
@@ -26,7 +28,9 @@ function App() {
           <Route path='/join' element={<Joinpage />}/>
           <Route path='/menu' element={<Menu />}/>
           <Route path='/option/:menuname' element={<Option />}/>
-          <Route path='/order' element={<Order />}/>
+          <Route path='/basket' element={<Basket />}/>
+          <Route path='/orderdelivery' element={<Orderdeliver />}/>
+          <Route path='/orderpackage' element={<Orderpackage />}/>
 
         </Routes>
       </Router>
