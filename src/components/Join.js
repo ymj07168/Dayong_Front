@@ -38,6 +38,7 @@ const Join = () => {
   const [passwordError, setPasswordError] = useState('');
   const [nameError, setNameError] = useState('');
   const [registerError, setRegisterError] = useState('');
+  
   const history = useNavigate();
 
   const handleAgree = (event) => {
@@ -52,7 +53,7 @@ const Join = () => {
     await axios
       .post('/member/join', postData)
       .then(function (response) {
-        console.log(response, '성공');
+        alert('회원가입이 완료되었습니다.')        
         history.push('/login');
       })
       .catch(function (err) {
@@ -143,7 +144,6 @@ const Join = () => {
                 <Grid item xs={12}>
                   <TextField
                     required
-                    autoFocus
                     fullWidth
                     type="email"
                     id="email"
