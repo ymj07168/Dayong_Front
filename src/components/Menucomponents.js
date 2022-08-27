@@ -10,6 +10,7 @@ const Menucomponents = ({ menuImg, name, price }) => {
                 {name}
                 {price}
             </div></Link>
+
         </div>
 
     )

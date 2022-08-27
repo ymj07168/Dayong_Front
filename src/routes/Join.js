@@ -1,4 +1,4 @@
-import Join from "../components/Join.js"
+import Join from "../components/Joinitem.js"
 
 const Joinpage = () => {
     return (
