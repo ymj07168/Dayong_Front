@@ -1,0 +1,56 @@
+body {
+    background-color: white;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0px;
+  }
+
+.title {
+    font-size: 50px;
+    color: blue;
+}
+
+.contentgroup {
+
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    height: 100%;
+}
+.buttongroup {
+
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+
+    height: 100%;
+    position: relative;
+    top: 250px;
+    width: 300px;
+}
+
+.buttoncontent li {
+    text-align: center;
+    margin: 5px;
+}
+
+.login {
+    width: 200px;
+    height: inherit;    
+    font-size: 24px;
+    border-radius: 15px;
+    border: 0px;
+
+}
+
+.join{
+    width: 200px;
+    height: inherit;    
+    font-size: 24px;
+    border-radius: 15px;
+    border: 0px;
+
+
+}
