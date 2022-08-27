@@ -36,7 +36,7 @@ const Boxs = styled(Box)`
 const Join = () => {
   const theme = createTheme();
   const [checked, setChecked] = useState(false);
-  const [emailError, setEmailError] = useState('');
+  const [userError, setUserError] = useState('');
   const [passwordState, setPasswordState] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [nameError, setNameError] = useState('');
@@ -48,39 +48,19 @@ const Join = () => {
     setChecked(event.target.checked);
   };
 
-  const onhandlePost = async (data) => {
-    const { email, name, password } = data;
-    const postData = { email, name, password };
 
-    // post
-    await axios
-      .post('/member/join', postData)
-      .then(function (response) {
-        alert('회원가입이 완료되었습니다.')
-        history.push('/login');
-      })
-      .catch(function (err) {
-        console.log(err);
-        setRegisterError('회원가입에 실패하였습니다. 다시한번 확인해 주세요.');
-      });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const data = new FormData(e.currentTarget);
     const joinData = {
-      email: data.get('email'),
+      user: data.get('user'),
       name: data.get('name'),
       password: data.get('password'),
       rePassword: data.get('rePassword'),
     };
-    const { age, city, email, name, password, rePassword } = joinData;
-
-    // 이메일 유효성 체크
-    const emailRegex = /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-    if (!emailRegex.test(email)) setEmailError('올바른 이메일 형식이 아닙니다.');
-    else setEmailError('');
+    const { user, name, password, rePassword } = joinData;
 
     // 비밀번호 유효성 체크
     const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
@@ -97,11 +77,16 @@ const Join = () => {
     if (!nameRegex.test(name) || name.length < 1) setNameError('올바른 아이디를 입력해주세요.');
     else setNameError('');
 
+    const userRegex = /^[가-힣a-zA-Z]+$/;
+    if (!userRegex.test(user) || user.length < 1) setUserError('올바른 이름을 입력해주세요.');
+    else setUserError('');
+
+
     // 회원가입 동의 체크
     if (!checked) alert('회원가입 약관에 동의해주세요.');
 
     if (
-      emailRegex.test(email) &&
+      
       passwordRegex.test(password) &&
       password === rePassword &&
       nameRegex.test(name) &&
@@ -109,6 +94,24 @@ const Join = () => {
     ) {
       onhandlePost(joinData);
     }
+  };
+
+  const onhandlePost = async (data) => {
+    const { user, name, password } = data;
+    console.log(data)
+     await axios.post('join', {
+       nickname: data.name,
+       password: data.password,
+       username: data.user,
+     }).then((res) => 
+       {
+         if(res.status === 200){
+           alert('회원가입 성공')
+           sessionStorage.setItem('token', res.headers.authorization)
+           history('/main')
+         }
+       }
+     );
   };
 
   return (
@@ -148,14 +151,13 @@ const Join = () => {
                     <TextField
                       required
                       fullWidth
-                      type="email"
-                      id="email"
-                      name="email"
-                      label="이메일 주소"
-                      error={emailError !== '' || false}
+                      id="user"
+                      name="user"
+                      label="이름"
+                      error={userError !== '' || false}
                     />
                   </Grid>
-                  <FormHelperTexts>{emailError}</FormHelperTexts>
+                  <FormHelperTexts>{userError}</FormHelperTexts>
                   <Grid item xs={12}>
                     <TextField
                       required
