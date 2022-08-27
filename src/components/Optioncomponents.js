@@ -54,6 +54,7 @@ const Optioncomponents = () => {
         
 
             <button className="basketbutton" type="button" onClick={onClick}>장바구니 추가</button>
+        
         </div>
         
     )

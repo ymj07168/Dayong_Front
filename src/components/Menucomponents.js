@@ -5,10 +5,12 @@ const Menucomponents = ({name, price}) => {
 
     return (
         <div>
-            <Link to={`/option/${name}`} style={{ color: "black" }}><div className="menubox">
+            <Link to={`/option/${name}`} style={{ color: "black" }}>
+            <div className="menubox">
                 <h1>{name}</h1>
                 <h3>{price}</h3>
-            </div></Link>
+            </div>
+            </Link>
         </div>
         
     )
