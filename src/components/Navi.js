@@ -240,7 +240,7 @@ export default function Navi(props) {
         .then(
             result => {
                 setPastPoint(result.data.point)
-                setCurrentPoint(Number(result.data.point) + point)
+                setCurrentPoint(pastPoint + point)
             }
         )
 
