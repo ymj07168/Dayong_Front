@@ -12,7 +12,9 @@ const Packagecomponents = ({ order }) => {
         dayong: false,
         total: 0,
         delivery: 0,
+
         total: localStorage.price,
+
     })
 
     const { dayong, total, delivery, address } = deliver;
@@ -93,10 +95,12 @@ if(res.status === 201) {
             <p className="ordercontent">{localStorage.price}원</p>
 
 
+
             </div>
 
             <div  className="ordersubmit">
             <button type="submit" onClick={handleSubmit}>주문하기</button>
+
 
             </div>
         </div>

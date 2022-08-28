@@ -22,6 +22,7 @@ export default function MyPage() {
         .then(
             result => {
                 setId(result.data.user)
+                setPoint(result.data.point)
                 setOrderNum(result.data.주문수)
             }
         )
@@ -38,11 +39,11 @@ export default function MyPage() {
                     <Link to='/point-detail'><div className='point-info'>
                         <h5>포인트</h5>
                         <p>{point}</p>
-                        </div></Link>
+                    </div></Link>
                     <Link to='/order-detail'><div className='order-info'>
-                    <h5>주문내역</h5>
+                        <h5>주문내역</h5>
                         <p>{orderNum}</p>
-                        </div></Link>
+                    </div></Link>
                 </div>
             </div >
         </>

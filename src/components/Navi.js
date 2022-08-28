@@ -17,19 +17,23 @@ export default function Navi(props) {
         var marker;
 
         function initTmap() {
-      // 1. 지도 띄우기
-      map = new Tmapv2.Map("map_div", {
-         center : new Tmapv2.LatLng(37.570028, 126.989072),
-         width : "100%",
-         height : "600px",
-         zoom : 15,
-         zoomControl : true,
-         scrollwheel : true
-          });
+		// 1. 지도 띄우기
+		map = new Tmapv2.Map("map_div", {
+			center : new Tmapv2.LatLng(37.570028, 126.989072),
+			width : "100%",
+			height : "600px",
+			zoom : 15,
+			zoomControl : true,
+			scrollwheel : true
+		    });
 
 
             // geolocation 사용여부 확인
             if (navigator.geolocation) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2b8dbe40ad12b6edaa7cbb2a41bf7149babd7f7c
 			navigator.geolocation.getCurrentPosition(
 				function(position) {
 					lat = position.coords.latitude;
@@ -107,78 +111,83 @@ export default function Navi(props) {
                         var tDistance = ((resultData[0].properties.totalDistance) / 1000).toFixed(1);
                         sessionStorage.setItem('dis', tDistance);
 						var tTime = ((resultData[0].properties.totalTime) / 60).toFixed(0);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2b8dbe40ad12b6edaa7cbb2a41bf7149babd7f7c
                         sessionStorage.setItem('time', tTime);
 
                   $("#result").text(tDistance + tTime);
                         $("#distance").text(tDistance);
                         $("#time").text(tTime);
-                  
-                  //기존 그려진 라인 & 마커가 있다면 초기화
-                  if (resultdrawArr.length > 0) {
-                     for ( var i in resultdrawArr) {
-                        resultdrawArr[i].setMap(null);
-                     }
-                     resultdrawArr = [];
-                  }
-                  
-                  drawInfoArr = [];
 
-                  for ( var i in resultData) { //for문 [S]
-                     var geometry = resultData[i].geometry;
-                     var properties = resultData[i].properties;
-                     var polyline_;
+						
+						//기존 그려진 라인 & 마커가 있다면 초기화
+						if (resultdrawArr.length > 0) {
+							for ( var i in resultdrawArr) {
+								resultdrawArr[i].setMap(null);
+							}
+							resultdrawArr = [];
+						}
+						
+						drawInfoArr = [];
+
+						for ( var i in resultData) { //for문 [S]
+							var geometry = resultData[i].geometry;
+							var properties = resultData[i].properties;
+							var polyline_;
 
 
-                     if (geometry.type == "LineString") {
-                        for ( var j in geometry.coordinates) {
-                           // 경로들의 결과값(구간)들을 포인트 객체로 변환 
-                           var latlng = new Tmapv2.Point(
-                                 geometry.coordinates[j][0],
-                                 geometry.coordinates[j][1]);
-                           // 포인트 객체를 받아 좌표값으로 변환
-                           var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(
-                                 latlng);
-                           // 포인트객체의 정보로 좌표값 변환 객체로 저장
-                           var convertChange = new Tmapv2.LatLng(
-                                 convertPoint._lat,
-                                 convertPoint._lng);
-                           // 배열에 담기
-                           drawInfoArr.push(convertChange);
-                        }
-                     } else {
-                        var markerImg = "";
-                        var pType = "";
-                        var size;
+							if (geometry.type == "LineString") {
+								for ( var j in geometry.coordinates) {
+									// 경로들의 결과값(구간)들을 포인트 객체로 변환 
+									var latlng = new Tmapv2.Point(
+											geometry.coordinates[j][0],
+											geometry.coordinates[j][1]);
+									// 포인트 객체를 받아 좌표값으로 변환
+									var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(
+											latlng);
+									// 포인트객체의 정보로 좌표값 변환 객체로 저장
+									var convertChange = new Tmapv2.LatLng(
+											convertPoint._lat,
+											convertPoint._lng);
+									// 배열에 담기
+									drawInfoArr.push(convertChange);
+								}
+							} else {
+								var markerImg = "";
+								var pType = "";
+								var size;
 
-                        if (properties.pointType == "S") { //출발지 마커
-                           markerImg = "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png";
-                           pType = "S";
-                           size = new Tmapv2.Size(24, 38);
-                        } else if (properties.pointType == "E") { //도착지 마커
-                           markerImg = "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png";
-                           pType = "E";
-                           size = new Tmapv2.Size(24, 38);
-                        } else { //각 포인트 마커
-                           markerImg = "http://topopen.tmap.co.kr/imgs/point.png";
-                           pType = "P";
-                           size = new Tmapv2.Size(8, 8);
-                        }
+								if (properties.pointType == "S") { //출발지 마커
+									markerImg = "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png";
+									pType = "S";
+									size = new Tmapv2.Size(24, 38);
+								} else if (properties.pointType == "E") { //도착지 마커
+									markerImg = "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png";
+									pType = "E";
+									size = new Tmapv2.Size(24, 38);
+								} else { //각 포인트 마커
+									markerImg = "http://topopen.tmap.co.kr/imgs/point.png";
+									pType = "P";
+									size = new Tmapv2.Size(8, 8);
+								}
 
-                        // 경로들의 결과값들을 포인트 객체로 변환 
-                        var latlon = new Tmapv2.Point(
-                              geometry.coordinates[0],
-                              geometry.coordinates[1]);
+								// 경로들의 결과값들을 포인트 객체로 변환 
+								var latlon = new Tmapv2.Point(
+										geometry.coordinates[0],
+										geometry.coordinates[1]);
 
-                        // 포인트 객체를 받아 좌표값으로 다시 변환
-                        var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(
-                              latlon);
+								// 포인트 객체를 받아 좌표값으로 다시 변환
+								var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(
+										latlon);
 
-                        var routeInfoObj = {
-                           markerImage : markerImg,
-                           lng : convertPoint._lng,
-                           lat : convertPoint._lat,
-                           pointType : pType
-                        };
+								var routeInfoObj = {
+									markerImage : markerImg,
+									lng : convertPoint._lng,
+									lat : convertPoint._lat,
+									pointType : pType
+								};
 
 								// Marker 추가
 								marker_p = new Tmapv2.Marker(
@@ -241,20 +250,25 @@ export default function Navi(props) {
         .then(
             result => {
                 setPastPoint(result.data.point)
-                setCurrentPoint(pastPoint + point)
+                setCurrentPoint(Number(pastPoint) + Number(point))
             }
         )
+
+    console.log(pastPoint);
+    console.log(currentPoint);
 
     let data = {
         point: currentPoint
     }
 
-    axios.patch('/auth/user/point', data, config)
-        .then((result) => {
-            console.log(result)
-            alert('포인트가 적립되었습니다.')
-        })
-        .catch(err => console.log(err))
+    const onComplete = (e) => {
+        axios.patch('/auth/point', data, config)
+            .then((result) => {
+                console.log(result)
+                alert('포인트가 적립되었습니다.')
+            })
+            .catch(err => console.log(err))
+    }
 
     return (
         <div >
@@ -270,7 +284,7 @@ export default function Navi(props) {
             <p className="possiblePoint">획득 가능 포인트 : {point}</p>
             <br />
             <div className="compelete-btn">
-                <button>주문수령완료</button>
+                <button onClick={onComplete}>주문수령완료</button>
             </div>
 			</div>
 

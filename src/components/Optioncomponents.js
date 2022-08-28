@@ -61,6 +61,7 @@ const Optioncomponents = () => {
             price: findItem.price,
             num: quantity
 
+
         },
             {
                 headers: {
@@ -74,6 +75,7 @@ const Optioncomponents = () => {
                 }
             })
     }
+
 
     return (
         <div className='option'>
@@ -107,4 +109,3 @@ const Optioncomponents = () => {
 
 export default Optioncomponents;
 
-//이름 가격 개수
