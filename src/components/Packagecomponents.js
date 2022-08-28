@@ -35,12 +35,11 @@ const Packagecomponents = ({ order }) => {
         }
     }
 
-console.log(deliver)
 
     return (
         <div>
             <div className="deliveryinfo">
-                <p >배달정보</p>
+                <p >포장정보</p>
 
 
             </div>
