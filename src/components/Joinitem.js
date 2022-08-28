@@ -99,7 +99,6 @@ const Join = () => {
 
   const onhandlePost = async (data) => {
     const { user, name, password } = data;
-    console.log(data)
     await axios.post('join', {
       nickname: data.name,
       password: data.password,
@@ -108,7 +107,7 @@ const Join = () => {
       if (res.status === 200) {
         alert('회원가입 성공')
         sessionStorage.setItem('token', res.headers.authorization)
-        history('/main')
+        history('/login')
       }
     }
     );
@@ -128,8 +127,8 @@ const Join = () => {
               fontFamily: "content"
             }}
           >
-            <Typography component="h1" variant="h5" sx={{mt: 8, fontFamily: "content", fontSize:"28px"}}>
-            <img src={face} style={{width:"60px", height: "60px", position: "absolute", top: "90px", left: "170px"}} /><br/>
+            <Typography component="h1" variant="h5" sx={{mt: 10, fontFamily:"content", fontSize: "28px"}}>
+            <img src={face} style={{width:"60px", height: "60px", position: "absolute", top: "110px", left: "170px"}} /><br/>
 
               회원가입
             </Typography>
@@ -160,7 +159,7 @@ const Join = () => {
                     />
                   </Grid>
                   <FormHelperTexts>{userError}</FormHelperTexts>
-                  
+
                   <Grid item xs={12}>
                     <TextField
                       required

@@ -5,13 +5,16 @@ import { useNavigate } from "react-router-dom"
 
 
 const Ordercomponents = ({ order }) => {
+    const totalPrice = sessionStorage.getItem('price');
+
     const history = useNavigate();
     const [deliver, setDeliver] = useState({
         dayong: 0,
-        total: localStorage.price,
+        total: totalPrice,
         delivery: 1,
         address: ''
     })
+
 
     const { dayong, total, delivery, address } = deliver;
     const onChange = (e) => {
@@ -26,7 +29,6 @@ const Ordercomponents = ({ order }) => {
     const handleSubmit = async() => {
         await axios.post('/auth/order', deliver,{headers: {'Authorization': sessionStorage.getItem('token')}})
         .then((res) => {
-            console.log(res)
 if(res.status === 201) {
     alert('주문이 완료되었습니다.')
     history('/order-detail')
@@ -34,7 +36,6 @@ if(res.status === 201) {
         })
     }
 
-    console.log(deliver)
     return (
         <div>
             <div className="deliveryinfo">
@@ -66,7 +67,7 @@ if(res.status === 201) {
             <div className="ordername">
 
             <p  className="orderInfo">결제금액</p>
-            <p className="ordercontent">{localStorage.price}원</p>
+            <p className="ordercontent">{totalPrice}원</p>
 
 
             </div>

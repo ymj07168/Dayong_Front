@@ -26,7 +26,7 @@ export default function MyPage() {
                 setOrderNum(result.data.주문수)
             }
         )
-//주문&주문완료
+    //주문&주문완료
     return (
         <>
             <Navbar />

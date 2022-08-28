@@ -28,7 +28,7 @@ export default function OrderDetail() {
              <div>
                 {orderList.map((item) => (
                     <OrderItem
-                        key={item.id}
+                        key={item.order_id}
                         props={item}
                     />
                 ))}
