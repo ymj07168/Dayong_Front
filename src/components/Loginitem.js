@@ -15,6 +15,8 @@ import {
   Typography,
   Container,
 } from '@mui/material/';
+
+import face from "../image/face.png"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import styled from 'styled-components';
 
@@ -33,6 +35,9 @@ const Boxs = styled(Box)`
   width: 300px;
 
 `;
+
+
+
 
 
 const Login = () => {
@@ -90,7 +95,6 @@ const Login = () => {
         } else {
           alert('잘못된 로그인')
         }
-
       }
     
     )
@@ -108,7 +112,8 @@ const Login = () => {
             alignItems: 'center',
           }}
         >
-          <Typography component="h1" variant="h5" sx={{ mt: 18 }}>
+          <Typography component="h1" variant="h5" sx={{ mt: 10 , fontFamily:"content", fontSize: "28px"}}>
+          <img src={face} style={{width:"60px", height: "60px", position: "absolute", top: "110px", left: "170px"}} /><br/>
             로그인
           </Typography>
           <Boxs component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
@@ -144,7 +149,7 @@ const Login = () => {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2 , bgcolor: "#37AC82", fontFamily: "content", fontSize: "24px"}}
                 size="large"
               >
                 로그인

@@ -71,7 +71,7 @@ const Packagecomponents = ({ order }) => {
             <div className="ordername">
 
                 <p className="orderInfo">주문자 이름</p>
-                <p className="ordercontent">이효원</p>
+                <p className="ordercontent">{sessionStorage.user_id}</p>
                 {/* {localStorage.getItem(name)} */}
             </div>
 

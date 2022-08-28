@@ -30,7 +30,10 @@ export default function Navi(props) {
 
             // geolocation 사용여부 확인
             if (navigator.geolocation) {
+<<<<<<< HEAD
+=======
 
+>>>>>>> 2b8dbe40ad12b6edaa7cbb2a41bf7149babd7f7c
 			navigator.geolocation.getCurrentPosition(
 				function(position) {
 					lat = position.coords.latitude;
@@ -108,7 +111,10 @@ export default function Navi(props) {
                         var tDistance = ((resultData[0].properties.totalDistance) / 1000).toFixed(1);
                         sessionStorage.setItem('dis', tDistance);
 						var tTime = ((resultData[0].properties.totalTime) / 60).toFixed(0);
+<<<<<<< HEAD
+=======
 
+>>>>>>> 2b8dbe40ad12b6edaa7cbb2a41bf7149babd7f7c
                         sessionStorage.setItem('time', tTime);
 
                   $("#result").text(tDistance + tTime);
@@ -265,23 +271,24 @@ export default function Navi(props) {
     }
 
     return (
-        <>
+        <div >
             <div id="map_wrap" class="map_wrap3">
                 <div id="map_div"></div>
             </div>
             <div className="map_act_btn_wrap clear_box"></div>
-            <div className="mapInfo-detail">
-                <p>총 거리 : {dis}</p>
-                <p>총 시간 : {time}</p>
+            <div className="mapcontent">
+			<div className="mapInfo-detail">
+                <p>총 거리 : {dis}km</p>
+                <p>총 시간 : {time}분</p>
             </div>
             <p className="possiblePoint">획득 가능 포인트 : {point}</p>
             <br />
             <div className="compelete-btn">
                 <button onClick={onComplete}>주문수령완료</button>
             </div>
+			</div>
 
-
-        </>
+        </div>
     )
 
 }

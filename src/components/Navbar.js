@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from './Button';
 import '../css/Navbar.css';
 
 function Navbar() {
+    const history = useNavigate();
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
 
@@ -20,6 +21,14 @@ function Navbar() {
             setButton(true);
         }
     };
+
+    const Logout =() => {
+
+        setClick(false)
+        localStorage.clear();
+        sessionStorage.clear();
+        history('/')
+    }
 
     // SIGNUP버튼이 사이즈가 줄어들면 없어지도록 한다. 
     useEffect(() => {
@@ -65,9 +74,9 @@ function Navbar() {
                             </Link>
                         </li> */}
                         <li className='nav-item'>
-                            <Link to='/login' className='nav-links-mobile' onClick={closeMobileMenu}>
-                                로그아웃
-                            </Link>
+                            <button className='nav-links-mobile' onClick={Logout}>
+                                로그아웃 </button>
+                            
                         </li>
                     </ul>
                     {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
