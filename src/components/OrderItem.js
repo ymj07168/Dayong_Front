@@ -5,7 +5,6 @@ import { useState,useEffect } from "react";
 export default function OrderItem({props}) {
  
     
-console.log(props)
     return (
         <div className="orderItemcontainer">
             <p>주문번호 : {props.id}     </p>                                     

@@ -17,6 +17,7 @@ import {
 } from '@mui/material/';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import styled from 'styled-components';
+import face from "../image/face.png"
 
 // mui의 css 우선순위가 높기때문에 important를 설정 - 실무하다 보면 종종 발생 우선순위 문제
 const FormHelperTexts = styled(FormHelperText)`
@@ -124,9 +125,12 @@ const Join = () => {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
+              fontFamily: "content"
             }}
           >
-            <Typography component="h1" variant="h5" sx={{mt: 10}}>
+            <Typography component="h1" variant="h5" sx={{mt: 8, fontFamily: "content", fontSize:"28px"}}>
+            <img src={face} style={{width:"60px", height: "60px", position: "absolute", top: "90px", left: "170px"}} /><br/>
+
               회원가입
             </Typography>
             <Boxs component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
@@ -192,7 +196,7 @@ const Join = () => {
                   type="submit"
                   fullWidth
                   variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
+                  sx={{ mt: 3, mb: 2,fontFamily: "content", fontSize:"24px", backgroundColor: "#37AC82", color: "#FFF4E8"}}
                   size="large"
                 >
                   회원가입

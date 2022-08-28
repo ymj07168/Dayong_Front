@@ -10,19 +10,15 @@ export default function OrderDetail() {
 
 
      const getOrderList = async () => {
-        await axios.get('/auth/order/orderList', {headers: {'Authorization': sessionStorage.getItem('token')}})
-        .then((res) => {
-
-           setOrderList(res.data)
-        })
-            
-     
-         
-         
-
+        const json = await axios.get('/auth/order/orderList', {headers: {'Authorization': sessionStorage.getItem('token')}})
+        
+        setOrderList(json.data.sort((a, b) => b.order_id - a.order_id))
      }
+
+
      useEffect(() => {
          getOrderList();
+
      }, []);
 
 
