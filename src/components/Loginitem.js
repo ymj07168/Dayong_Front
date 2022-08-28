@@ -107,36 +107,36 @@ const Login = () => {
             alignItems: 'center',
           }}
         >
-          <Typography component="h1" variant="h5" sx={{mt: 18}}>
+          <Typography component="h1" variant="h5" sx={{ mt: 18 }}>
             로그인
           </Typography>
           <Boxs component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <FormControl component="fieldset" variant="standard">
 
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="name"
-                  name="name"
-                  label="아이디"
-                  error={nameError !== '' || false}
-                />
-              </Grid>
-              <FormHelperTexts>{nameError}</FormHelperTexts>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  type="password"
-                  id="password"
-                  name="password"
-                  label="비밀번호"
-                  error={passwordState !== '' || false}
-                />
-              </Grid>
-              <FormHelperTexts>{passwordState}</FormHelperTexts>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="name"
+                    name="name"
+                    label="아이디"
+                    error={nameError !== '' || false}
+                  />
+                </Grid>
+                <FormHelperTexts>{nameError}</FormHelperTexts>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    type="password"
+                    id="password"
+                    name="password"
+                    label="비밀번호"
+                    error={passwordState !== '' || false}
+                  />
+                </Grid>
+                <FormHelperTexts>{passwordState}</FormHelperTexts>
 
               </Grid>
               <Button
@@ -148,11 +148,11 @@ const Login = () => {
               >
                 로그인
               </Button>
-              
+
             </FormControl>
             <FormHelperTexts>{registerError}</FormHelperTexts>
           </Boxs>
-          
+
         </Box>
       </Container>
     </ThemeProvider>

@@ -54,25 +54,27 @@ const Optioncomponents = () => {
 
 
     const history = useNavigate();
-    const onClick = async() => { 
-        
+    const onClick = async () => {
+
         await axios.post('/auth/menu', {
             menu_name: findItem.name,
             price: findItem.price,
             num: quantity
-        }, 
-        {headers: {
-            Authorization: sessionStorage.getItem('token')
-        }} ).then((res) => {
-            if(res.status === 201) {
-                console.log(res)
-                alert('장바구니에 추가되었습니다.')
-                history('/menu')
-            }
-        })
 
+        },
+            {
+                headers: {
+                    Authorization: sessionStorage.getItem('token')
+                }
+            }).then((res) => {
+                if (res.status === 201) {
+                    console.log(res)
+                    alert('장바구니에 추가되었습니다.')
+                    history('/menu')
+                }
+            })
     }
-    
+
     return (
         <div className='option'>
             <div className='menuItem-img'>
@@ -84,7 +86,7 @@ const Optioncomponents = () => {
             <br />
             <br />
             <div className='menu-price'>
-                <h2>가격 : &nbsp;{findItem.price*quantity}원</h2></div><br />
+                <h2>가격 : &nbsp;{findItem.price * quantity}원</h2></div><br />
             <div className='menu-quantity'>
 
                 <h2>수량 : &nbsp;</h2>
