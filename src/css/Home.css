@@ -1,0 +1,110 @@
+body {
+    background-color: white;
+    font-family: 'content';
+
+    
+}
+
+@font-face {
+    font-family: 'title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'content';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'contentthin';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.title {
+    font-size: 40px;
+    color: #37AC82;
+    width: 100px;
+    font-family: 'title';
+    width: 170px;
+    position: relative;
+    top: -190px;
+    left: -50px;
+    
+}
+
+.contentgroup {
+    position: relative;
+    top: -90px;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    height: 100%;
+    font-family: 'content';
+    font-size: 20px;
+    text-align: center;
+}
+.contentfont {
+    font-family: 'content';
+    font-size: 30px;
+    line-height: 40px;
+}
+
+.buttongroup {
+
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+
+    height: 100%;
+    position: relative;
+    top: 260px;
+    width: 300px;
+}
+
+.buttoncontent li {
+    text-align: center;
+    margin: 15px;
+    height: 50px;
+}
+
+.login {
+    width: 200px;
+    height: inherit;
+    font-size: 24px;
+    border-radius: 20px;
+    border: 0px;
+    background-color: #37AC82;
+    color: #FFF4E8;
+    font-family: 'content';
+}
+
+.join {
+    width: 200px;
+    height: inherit;
+    font-size: 24px;
+    background-color: #FFF4E8;
+    border-radius: 20px;
+    border: 0px;
+    color:#37AC82;    
+    font-family: 'content';
+
+
+
+}
+
+.dayongbeside {
+    width: 300px;
+    position: absolute;
+    left: -100px;
+}

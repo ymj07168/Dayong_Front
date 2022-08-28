@@ -1,0 +1,67 @@
+.mypage-container {
+    justify-content: center;
+    margin-top: 150px;
+    text-align: center;
+}
+
+.myinfo {
+    font-size: 30px;;
+    margin-top: 10px;
+    font-family: 'content';
+}
+
+/* 포인트+주문내역 정보 */
+.mypage-detail {
+    font-size: large;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.point-info {
+    padding-top: 15px;
+    border: 1px solid;
+    margin: 10px;
+    width: 150px;
+    height: 100px;
+    line-height: 35px;
+    border: 0px;
+    background-color: #37AC82 ;
+    border-radius: 15px;
+    color: #FFF4E8;
+
+}
+
+.point-info > h5{
+    font-size: 24px;
+    font-family: 'content';
+}
+.point-info > p{
+    font-size: 20px;
+    font-family: 'contentthin';
+}
+
+
+.order-info {
+    padding-top: 15px;
+    border: 1px solid;
+    margin: 10px;
+    width: 150px;
+    height: 100px;
+    line-height: 35px;
+    border: 0px;
+    background-color: #FFF4E8;
+    border-radius: 15px;
+    color: #37AC82;
+
+}
+
+.order-info > h5{
+    font-size: 24px;
+    font-family: 'content';
+}
+
+.order-info > p{
+    font-size: 20px;
+    font-family: 'contentthin';
+}

@@ -1,0 +1,46 @@
+.mapInfo-detail {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.mapInfo-detail>p {
+    margin: 10px;
+    font-family: 'content';
+    font-size: 18px;
+}
+
+.possiblePoint {
+    margin-top: 5px;
+    text-align: center;
+    font-family: 'content';
+        font-size: 18px;
+
+}
+
+.compelete-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.compelete-btn > button {
+    
+    font-family: 'content';
+    font-size: 18px;
+    background-color: #37AC82;
+color: #FFF4E8;
+border: 0px;
+padding: 7px 10px 7px 10px;
+border-radius: 15px;
+
+
+}
+
+.mapcontent{
+    padding-top: 5px;
+    position: absolute;
+    top: 650px;
+    width: 400px;
+    height: 160px;
+    background-color: #FFF4E8;
+}
