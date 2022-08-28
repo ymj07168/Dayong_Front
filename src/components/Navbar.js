@@ -35,8 +35,10 @@ function Navbar() {
                 <div className='navbar-container'>
                     {/* 모바일버전에서 클릭하면 메뉴 보이도록 설정하는 것도 한다. (close Mobile Menu)는 다시 버튼 누르면 없어지고 생기고 하도록 한다.  */}
 
-                    <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-                        #다용
+                    <Link to='/main'  onClick={closeMobileMenu}> <div className='navbar-logo'>
+                    #다용
+                    </div>
+                        
                     </Link>
                     <div className='menu-icon' onClick={handleClick}>
                         <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -45,6 +47,11 @@ function Navbar() {
                         <li className='nav-item'>
                             <Link to='/main' className='nav-links' onClick={closeMobileMenu}>
                                 홈
+                            </Link>
+                        </li>
+                        <li className='nav-item'>
+                            <Link to='/basket' className='nav-links' onClick={closeMobileMenu}>
+                                장바구니
                             </Link>
                         </li>
                         <li className='nav-item'>

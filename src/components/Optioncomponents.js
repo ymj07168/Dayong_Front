@@ -5,11 +5,12 @@ import menu1 from "../image/menu1.jpg";
 import menu2 from "../image/menu2.jpg";
 import menu3 from "../image/menu3.jpg";
 import menu4 from "../image/menu4.jpg";
-import axios from "axios";
+
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Optioncomponents = () => {
-    const [menuName, setMenuName] = useState('');
-    const [price, setPrice] = useState(0);
+
     const [quantity, setQuantity] = useState(0);
 
     const handleIncrement = () => {
@@ -46,16 +47,30 @@ const Optioncomponents = () => {
             price: 4000,
         }]
 
+
     let findItem = Menu.find((item) => {
         return item.name == menuname;
     });
 
-    let config = {
-        headers: {
-            'Authorization': sessionStorage.getItem('token'),
-            'content-type': 'application/json;charset=UTF-8'
-        }
-    }
+
+    const history = useNavigate();
+    const onClick = async() => { 
+        
+        await axios.post('/auth/menu', {
+            menu_name: findItem.name,
+            price: findItem.price,
+            num: quantity
+        }, 
+        {headers: {
+            Authorization: sessionStorage.getItem('token')
+        }} ).then((res) => {
+            if(res.status === 201) {
+                console.log(res)
+                alert('장바구니에 추가되었습니다.')
+                history('/menu')
+            }
+        })
+
 
     const onClick = () => {
         let data = {
@@ -80,11 +95,14 @@ const Optioncomponents = () => {
             <br />
             <br />
             <div className='menu-price'>
-                <h2>가격 : &nbsp;{findItem.price}원</h2></div><br />
+                <h2>가격 : &nbsp;{findItem.price*quantity}원</h2></div><br />
             <div className='menu-quantity'>
-                <h2>수량 : &nbsp;</h2><button name="inc" onClick={handleIncrement} style={{ width: "30px", height: "30px", fontSize: "20px" }}> + </button>
+
+                <h2>수량 : &nbsp;</h2>
+                <button name="dec" onClick={handleDecrement} className="changebutton"> - </button>
+
                 &nbsp;&nbsp;<h2>{quantity}</h2>&nbsp;&nbsp;
-                <button name="dec" onClick={handleDecrement} style={{ width: "30px", height: "30px", fontSize: "20px" }}> - </button>
+                <button name="inc" onClick={handleIncrement} className="changebutton"> + </button>
             </div>
             <div className='basket-btn-container'>
                 <button className="basket-button" type="button" onClick={onClick}>장바구니 추가</button>

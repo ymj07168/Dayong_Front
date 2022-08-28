@@ -1,5 +1,5 @@
 .navbar {
-    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+    background-color: #37AC82;
     height: 60px;
     display: flex;
     justify-content: center;
@@ -8,6 +8,7 @@
     position: sticky;
     top: 0;
     z-index: 999;
+    color: #FFF4E8;
 }
 
 .navbar-container {
@@ -19,15 +20,19 @@
 }
 
 .navbar-logo {
-    color: #fff;
+    color: #FFF4E8;;
+    font-family: 'title';
     justify-self: start;
-    margin-left: 20px;
+    margin-top: -7px;
+    margin-left: 10px;
     cursor: pointer;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 28px;
     display: flex;
     align-items: center;
 }
+
+
 
 .fa-typo3 {
     margin-left: 0.5rem;
@@ -49,25 +54,29 @@
     height: 80px;
     margin: 10px;
     position: relative;
-    top: -300px;
+    top: -200px;
 }
 
 .nav-links {
-    color: #fff;
+    color: black;
     display: flex;
     align-items: center;
     text-decoration: none;
     padding: 0.5rem 1rem;
     height: 100%;
+    font-family: 'content';
+    font-size: 24px;
 }
 
 .nav-links:hover {
-    border-bottom: 4px solid #fff;
+    border-bottom: 4px solid black;
     transition: all 0.2s ease-out;
 }
 
 .fa-bars {
-    color: #fff;
+    color: #FFF4E8;
+    position: relative;
+        top: -2px;
 }
 
 .nav-links-mobile {
@@ -96,7 +105,7 @@
     }
 
     .nav-menu.active {
-        background: #242222;
+        background: #FFF4E8;
         
         left: 0;
         opacity: 1;
@@ -137,22 +146,26 @@
 
     .fa-times {
         color: #fff;
-        font-size: 2rem;
+        position: relative;
+        top: -5px;
+        font-size: 30px;
     }
 
     .nav-links-mobile {
         display: block;
         text-align: center;
         margin: 1rem auto;
-        border-radius: 4px;
-        width: 80%;
+        border-radius: 5px;
+        width: 120px;
         text-decoration: none;
-        font-size: 1.5rem;
+        font-size: 18px;
         background-color: transparent;
-        color: #fff;
+        color: black;
         padding: 14px 20px;
-        border: 1px solid #fff;
+        border: 1px solid black;
         transition: all 0.3s ease-out;
+        font-weight: bold;
+        font-family: 'content';
     }
 
     .nav-links-mobile:hover {
