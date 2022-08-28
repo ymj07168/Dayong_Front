@@ -4,6 +4,7 @@ import menu1 from "../image/menu1.jpg";
 import menu2 from "../image/menu2.jpg";
 import menu3 from "../image/menu3.jpg";
 import menu4 from "../image/menu4.jpg";
+import "../css/Menu.css"
 
 const Menu = () => {
     const Menu = [

@@ -127,8 +127,7 @@ const Join = () => {
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} />
-            <Typography component="h1" variant="h5">
+            <Typography component="h1" variant="h5" sx={{mt: 10}}>
               회원가입
             </Typography>
             <Boxs component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
@@ -158,6 +157,7 @@ const Join = () => {
                     />
                   </Grid>
                   <FormHelperTexts>{userError}</FormHelperTexts>
+                  
                   <Grid item xs={12}>
                     <TextField
                       required

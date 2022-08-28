@@ -27,8 +27,13 @@ const FormHelperTexts = styled(FormHelperText)`
 `;
 
 const Boxs = styled(Box)`
+  position: absolute;
+  top: 250px;
   padding-bottom: 40px !important;
+  width: 300px;
+
 `;
+
 
 const Login = () => {
   const theme = createTheme();
@@ -76,9 +81,12 @@ const Login = () => {
     }).then((res) => 
       {
         if(res.status === 200){
+          console.log(res)
           alert('로그인 성공')
           sessionStorage.setItem('token', res.headers.authorization)
           history('/main')
+        } else {
+          alert('잘못된 로그인')
         }
       }
     )
@@ -96,13 +104,13 @@ const Login = () => {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} />
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" sx={{mt: 18}}>
             로그인
           </Typography>
           <Boxs component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <FormControl component="fieldset" variant="standard">
 
+            <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
                   required
@@ -127,7 +135,7 @@ const Login = () => {
               </Grid>
               <FormHelperTexts>{passwordState}</FormHelperTexts>
 
-
+              </Grid>
               <Button
                 type="submit"
                 fullWidth
@@ -137,9 +145,11 @@ const Login = () => {
               >
                 로그인
               </Button>
+              
             </FormControl>
             <FormHelperTexts>{registerError}</FormHelperTexts>
           </Boxs>
+          
         </Box>
       </Container>
     </ThemeProvider>

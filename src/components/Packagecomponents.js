@@ -54,7 +54,7 @@ console.log(deliver)
             <div className="ordername">
 
                 <label  className="orderInfo" htmlFor="포장용기">포장용기 여부<br/></label>
-                <input type="checkbox" name="dayong" checked={check} onChange={onClick} />
+                <input type="checkbox" name="dayong" checked={check} onChange={onClick} style={{marginLeft: "5px"}}/>
                 <label className="ordercontent" htmlFor="포장용기">&nbsp;&nbsp;포장용기 가져갈게요<br/></label>
 
             </div>
