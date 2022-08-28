@@ -76,6 +76,7 @@ const Basket = () => {
     }
 
     const Clickpackage = () => {
+        sessionStorage.setItem('price', sum)
 
     }
 
