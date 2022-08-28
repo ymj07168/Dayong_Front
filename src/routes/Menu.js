@@ -7,6 +7,7 @@ import menu4 from "../image/menu4.jpg";
 import "../css/Menu.css"
 
 const Menu = () => {
+
     const Menu = [
         {
             img: menu1,

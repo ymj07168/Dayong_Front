@@ -107,7 +107,7 @@ const Join = () => {
       if (res.status === 200) {
         alert('회원가입 성공')
         sessionStorage.setItem('token', res.headers.authorization)
-        history('/main')
+        history('/login')
       }
     }
     );
@@ -126,7 +126,7 @@ const Join = () => {
               alignItems: 'center',
             }}
           >
-            <Typography component="h1" variant="h5" sx={{mt: 10}}>
+            <Typography component="h1" variant="h5" sx={{ mt: 10 }}>
               회원가입
             </Typography>
             <Boxs component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
@@ -156,7 +156,7 @@ const Join = () => {
                     />
                   </Grid>
                   <FormHelperTexts>{userError}</FormHelperTexts>
-                  
+
                   <Grid item xs={12}>
                     <TextField
                       required
