@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 
-export default function Navi() {
+export default function Navi(props) {
 
     useEffect(() => {
         const script = document.createElement("script");
@@ -23,6 +23,36 @@ export default function Navi() {
 			scrollwheel : true
 		    });
 
+            if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(
+				function(position) {
+					var lat = position.coords.latitude;
+					var lon = position.coords.longitude;
+						
+					//팝업 생성
+					var content = "<div style=' position: relative; border-bottom: 1px solid #dcdcdc; line-height: 18px; padding: 0 35px 2px 0;'>"
+							+ "<div style='font-size: 12px; line-height: 15px;'>"
+							+ "<span style='display: inline-block; width: 14px; height: 14px; background-image: url(/resources/images/common/icon_blet.png); vertical-align: middle; margin-right: 5px;'></span>현재위치"
+							+ "</div>" + "</div>";
+
+					marker = new Tmapv3.Marker({
+						position : new Tmapv3.LatLng(lat,lon),
+						map : map
+					});
+
+					InfoWindow = new Tmapv3.InfoWindow({
+						position : new Tmapv3.LatLng(lat,lon),
+						content : content,
+						offset : new Tmapv3.Point(0,30),
+						type : 2,
+						map : map
+					});
+					map.setCenter(new Tmapv3.LatLng(lat,lon));
+					map.setZoom(15);
+				});	
+		}
+
+        
             // 2. 시작, 도착 심볼찍기
 		// 시작
 		var marker_s = new Tmapv2.Marker(
@@ -64,12 +94,18 @@ export default function Navi() {
                         
 
 						//결과 출력
-						var tDistance = "총 거리 : "
-								+ ((resultData[0].properties.totalDistance) / 1000)
-										.toFixed(1) + "km,";
-						var tTime = " 총 시간 : "
-								+ ((resultData[0].properties.totalTime) / 60)
-										.toFixed(0) + "분";
+						// var tDistance = "총 거리 : "
+						// 		+ ((resultData[0].properties.totalDistance) / 1000)
+						// 				.toFixed(1) + "km,";
+						// var tTime = " 총 시간 : "
+						// 		+ ((resultData[0].properties.totalTime) / 60)
+						// 				.toFixed(0) + "분";
+
+                                var tDistance = ((resultData[0].properties.totalDistance) / 1000)
+										.toFixed(1);
+                                        sessionStorage.setItem('dis', tDistance);
+						var tTime = ((resultData[0].properties.totalTime) / 60).toFixed(0);
+                        sessionStorage.setItem('time', tTime);
 
 						$("#result").text(tDistance + tTime);
                         $("#distance").text(tDistance);
@@ -158,7 +194,6 @@ export default function Navi() {
 					},
 					
 				});
-
         }
 
         initTmap();
@@ -179,7 +214,6 @@ export default function Navi() {
 		    });
 		    resultdrawArr.push(polyline_);
 	    }
-        
         `;
         script.type = "text/javascript";
         script.async = "async";
@@ -187,34 +221,25 @@ export default function Navi() {
     }, []);
 
 
+    const dis = sessionStorage.getItem('dis')
+    const time = sessionStorage.getItem('time')
+
+    const point = Number(dis) * 100;
+
     return (
-        // <>
-        //     <div>
-        //         <div id="map_wrap" class="map_wrap3">
-        //             <div id="map_div"></div>
-        //         </div>
-        //         <div class="map_act_btn_wrap clear_box"></div>
-        //         <p id="result"></p>
-        //         <br />
-        //     </div>
-        // </>
         <>
             <div id="map_wrap" class="map_wrap3">
                 <div id="map_div"></div>
             </div>
             <div className="map_act_btn_wrap clear_box"></div>
-            <p id="result"></p>
-            <p id="distance"></p><p id="time"></p>
+            {/* <p id="result"></p>
+            <br /> */}
+            <p>총 거리 : {dis}</p>
+            <p>총 시간 : {time}</p>
+            <p>획득 포인트 : {point}</p>
             <br />
+
         </>
-        // <div
-        //     id="map_div"
-        //     style={{
-        //         height: "100%",
-        //         width: "100%",
-        //         position: "fixed",
-        //     }}
-        // />
     )
 
 }
