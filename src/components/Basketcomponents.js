@@ -1,9 +1,40 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import "../css/Order.css"
+import menu1 from "../image/menu1.jpg";
+import menu2 from "../image/menu2.jpg";
+import menu3 from "../image/menu3.jpg";
+import menu4 from "../image/menu4.jpg";
 
 
-const Basketcomponents = ({name, price, image, quantity}) => {
+
+const Basketcomponents = ({menu, price,  quantity}) => {
+
+    const Menu = [
+        {
+            img: menu1,
+            name: '마약파전',
+            price: 11000,
+        },
+        {
+            img: menu2,
+            name: '김치전',
+            price: 8000,
+        },
+        {
+            img: menu3,
+            name: '모듬전',
+            price: 15000,
+        },
+        {
+            img: menu4,
+            name: '전통막걸리',
+            price: 4000,
+        }]
+
+        const findItem = Menu.find((item) => {
+            return item.name === menu;
+        })
 
 
     return (
@@ -11,10 +42,10 @@ const Basketcomponents = ({name, price, image, quantity}) => {
             <div className="orderbox">
                 <div className="ordercontent">
                     <h5>
-                        {name}
+                        {menu}
                     </h5>
 
-                    <img src={image} style={{width: "80px", height: "80px", marginTop: "5px"}} />
+                    <img src={findItem.img} style={{width: "80px", height: "80px", marginTop: "5px"}} />
                     <div className="basketinfo">
                     <p>
                         {price}원
