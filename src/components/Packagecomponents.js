@@ -2,15 +2,19 @@ import axios from "axios"
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from "react"
 import "../css/Order.css"
+import { useNavigate } from "react-router-dom"
 
 
 
 const Packagecomponents = ({ order }) => {
+    const history = useNavigate();
     const [check, setCheck] = useState(false);
     const [deliver, setDeliver] = useState({
         dayong: false,
         total: 0,
         delivery: 0,
+
+        total: localStorage.price,
 
     })
 
@@ -37,6 +41,17 @@ const Packagecomponents = ({ order }) => {
             });
 
         }
+    }
+
+    const handleSubmit = async() => {
+        await axios.post('/auth/order', deliver,{headers: {'Authorization': sessionStorage.getItem('token')}})
+        .then((res) => {
+            console.log(res)
+if(res.status === 201) {
+    alert('주문이 완료되었습니다.')
+    history('/mapinfo')
+}
+        })
     }
 
 
@@ -78,14 +93,16 @@ const Packagecomponents = ({ order }) => {
 
             <div className="ordername">
 
-                <p className="orderInfo">결제금액</p>
-                <p className="ordercontent">원</p>
+            <p  className="orderInfo">결제금액</p>
+            <p className="ordercontent">{localStorage.price}원</p>
+
 
 
             </div>
 
-            <div className="ordersubmit">
-                <button type="submit" onClick={onOrder}>주문하기</button>
+            <div  className="ordersubmit">
+            <button type="submit" onClick={handleSubmit}>주문하기</button>
+
 
             </div>
         </div>

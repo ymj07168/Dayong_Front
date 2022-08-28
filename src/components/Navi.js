@@ -9,6 +9,7 @@ export default function Navi(props) {
         const script = document.createElement("script");
         script.innerHTML = `
         var map;
+
 	    var marker_s, marker_e, marker_p1, marker_p2;
 	    var totalMarkerArr = [];
 	    var drawInfoArr = [];
@@ -29,6 +30,7 @@ export default function Navi(props) {
 
             // geolocation 사용여부 확인
             if (navigator.geolocation) {
+
 			navigator.geolocation.getCurrentPosition(
 				function(position) {
 					lat = position.coords.latitude;
@@ -106,11 +108,13 @@ export default function Navi(props) {
                         var tDistance = ((resultData[0].properties.totalDistance) / 1000).toFixed(1);
                         sessionStorage.setItem('dis', tDistance);
 						var tTime = ((resultData[0].properties.totalTime) / 60).toFixed(0);
+
                         sessionStorage.setItem('time', tTime);
 
-						$("#result").text(tDistance + tTime);
+                  $("#result").text(tDistance + tTime);
                         $("#distance").text(tDistance);
                         $("#time").text(tTime);
+
 						
 						//기존 그려진 라인 & 마커가 있다면 초기화
 						if (resultdrawArr.length > 0) {
@@ -201,21 +205,21 @@ export default function Navi(props) {
         initTmap();
 
         function addComma(num) {
-		var regexp = /\B(?=(\d{3})+(?!\d))/g;
-		return num.toString().replace(regexp, ',');
-	    }
-	
-	    function drawLine(arrPoint) {
-		    var polyline_;
+      var regexp = /\B(?=(\d{3})+(?!\d))/g;
+      return num.toString().replace(regexp, ',');
+       }
+   
+       function drawLine(arrPoint) {
+          var polyline_;
 
-		    polyline_ = new Tmapv2.Polyline({
-			    path : arrPoint,
-			    strokeColor : "#DD0000",
-			    strokeWeight : 6,
-			    map : map
-		    });
-		    resultdrawArr.push(polyline_);
-	    }
+          polyline_ = new Tmapv2.Polyline({
+             path : arrPoint,
+             strokeColor : "#DD0000",
+             strokeWeight : 6,
+             map : map
+          });
+          resultdrawArr.push(polyline_);
+       }
         `;
         script.type = "text/javascript";
         script.async = "async";

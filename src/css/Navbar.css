@@ -76,7 +76,7 @@
 .fa-bars {
     color: #FFF4E8;
     position: relative;
-        top: -2px;
+    top: -2px;
 }
 
 .nav-links-mobile {
@@ -106,7 +106,7 @@
 
     .nav-menu.active {
         background: #FFF4E8;
-        
+        height: 800px;
         left: 0;
         opacity: 1;
         transition: all 0.5s ease;

@@ -36,8 +36,9 @@ font-size: 20px;
 
 .basketprice {
     position: absolute;
+    padding-top: 10px;
+    width: 400px;
     top: 670px;
-    left: 160px;
     font-size: 24px;
     display: flex;
     justify-Content: center;

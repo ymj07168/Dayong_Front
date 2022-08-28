@@ -78,16 +78,21 @@ const Login = () => {
       nickname: LoginData.name,
       password: LoginData.password
 
-    }).then((res) => {
-      if (res.status === 200) {
-        console.log(res)
-        alert('로그인 성공')
-        sessionStorage.setItem('token', res.headers.authorization)
-        history('/main')
-      } else {
-        alert('잘못된 로그인')
+    }).then((res) => 
+      {
+        if(res.status === 200){
+          console.log(res)
+          alert('로그인 성공')
+          sessionStorage.setItem('token', res.headers.authorization)
+          sessionStorage.setItem('user_id', LoginData.name)
+
+          history('/main')
+        } else {
+          alert('잘못된 로그인')
+        }
+
       }
-    }
+    
     )
   }
 
