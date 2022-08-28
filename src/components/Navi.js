@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
+import "../css/Navi.css";
 import ReactDOM from "react-dom";
 
 export default function Navi(props) {
@@ -65,8 +67,8 @@ export default function Navi(props) {
 
 		marker_s = new Tmapv2.Marker(
 				{
-					position : new Tmapv2.LatLng(lon, lat),
-					icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png",
+					position : new Tmapv2.LatLng(lat, lon),
+					icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png",{}
 					iconSize : new Tmapv2.Size(24, 38),
 					map : map
 				});
@@ -220,11 +222,38 @@ export default function Navi(props) {
         document.head.appendChild(script);
     }, []);
 
-
     const dis = sessionStorage.getItem('dis')
     const time = sessionStorage.getItem('time')
-
     const point = Number(dis) * 100;
+
+    const [pastPoint, setPastPoint] = useState(0);
+    const [currentPoint, setCurrentPoint] = useState(0);
+
+    let config = {
+        headers: {
+            'Authorization': sessionStorage.getItem('token'),
+            'content-type': 'application/json;charset=UTF-8'
+        }
+    }
+
+    axios.get(`/auth/mypage`, config)
+        .then(
+            result => {
+                setPastPoint(result.data.point)
+                setCurrentPoint(pastPoint + point)
+            }
+        )
+
+    let data = {
+        point: currentPoint
+    }
+
+    axios.patch('/auth/user/point', data, config)
+        .then((result) => {
+            console.log(result)
+            alert('포인트가 적립되었습니다.')
+        })
+        .catch(err => console.log(err))
 
     return (
         <>
@@ -232,12 +261,16 @@ export default function Navi(props) {
                 <div id="map_div"></div>
             </div>
             <div className="map_act_btn_wrap clear_box"></div>
-            {/* <p id="result"></p>
-            <br /> */}
-            <p>총 거리 : {dis}</p>
-            <p>총 시간 : {time}</p>
-            <p>획득 포인트 : {point}</p>
+            <div className="mapInfo-detail">
+                <p>총 거리 : {dis}</p>
+                <p>총 시간 : {time}</p>
+            </div>
+            <p className="possiblePoint">획득 가능 포인트 : {point}</p>
             <br />
+            <div className="compelete-btn">
+                <button>주문수령완료</button>
+            </div>
+
 
         </>
     )
