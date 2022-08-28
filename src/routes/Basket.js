@@ -72,7 +72,6 @@ const Basket = () => {
     const Clickdelivery = () => {
 
         sessionStorage.setItem('price', sum)
-        console.log(sessionStorage)
 
     }
 

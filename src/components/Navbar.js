@@ -25,8 +25,7 @@ function Navbar() {
     const Logout =() => {
 
         setClick(false)
-        localStorage.clear();
-        sessionStorage.clear();
+        sessionStorage.removeItem('token');
         history('/')
     }
 

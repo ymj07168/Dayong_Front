@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import "../css/Navi.css";
 import ReactDOM from "react-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Navi(props) {
 
@@ -30,10 +31,6 @@ export default function Navi(props) {
 
             // geolocation 사용여부 확인
             if (navigator.geolocation) {
-<<<<<<< HEAD
-=======
-
->>>>>>> 2b8dbe40ad12b6edaa7cbb2a41bf7149babd7f7c
 			navigator.geolocation.getCurrentPosition(
 				function(position) {
 					lat = position.coords.latitude;
@@ -41,8 +38,8 @@ export default function Navi(props) {
 						
 					//팝업 생성
 					var content = "<div style=' position: relative; border-bottom: 1px solid #dcdcdc; line-height: 18px; padding: 0 35px 2px 0;'>"
-							+ "<div style='font-size: 12px; line-height: 15px;'>"
-							+ "<span style='display: inline-block; width: 14px; height: 14px; background-image: url(/resources/images/common/icon_blet.png); vertical-align: middle; margin-right: 5px;'></span>현재위치"
+							+ "<div style='font-size: 12px; line-height: 15px; '>"
+							+ "<span style='display: inline-block; width: 14px; height: 14px; background-image: url(/resources/images/common/icon_blet.png); vertical-align: middle; margin-right: 5px; '></span>현재위치"
 							+ "</div>" + "</div>";
 
 					marker = new Tmapv2.Marker({
@@ -111,10 +108,6 @@ export default function Navi(props) {
                         var tDistance = ((resultData[0].properties.totalDistance) / 1000).toFixed(1);
                         sessionStorage.setItem('dis', tDistance);
 						var tTime = ((resultData[0].properties.totalTime) / 60).toFixed(0);
-<<<<<<< HEAD
-=======
-
->>>>>>> 2b8dbe40ad12b6edaa7cbb2a41bf7149babd7f7c
                         sessionStorage.setItem('time', tTime);
 
                   $("#result").text(tDistance + tTime);
@@ -254,18 +247,17 @@ export default function Navi(props) {
             }
         )
 
-    console.log(pastPoint);
-    console.log(currentPoint);
 
     let data = {
         point: currentPoint
     }
-
+	const history = useNavigate();
     const onComplete = (e) => {
         axios.patch('/auth/point', data, config)
             .then((result) => {
-                console.log(result)
                 alert('포인트가 적립되었습니다.')
+				history('/mypage')
+				
             })
             .catch(err => console.log(err))
     }

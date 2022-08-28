@@ -99,7 +99,6 @@ const Join = () => {
 
   const onhandlePost = async (data) => {
     const { user, name, password } = data;
-    console.log(data)
     await axios.post('join', {
       nickname: data.name,
       password: data.password,
@@ -128,6 +127,8 @@ const Join = () => {
               fontFamily: "content"
             }}
           >
+
+
             <Typography component="h1" variant="h5" sx={{mt: 8, fontFamily: "content", fontSize:"28px"}}>
             <img src={face} style={{width:"60px", height: "60px", position: "absolute", top: "90px", left: "170px"}} /><br/>
 

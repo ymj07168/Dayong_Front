@@ -69,7 +69,6 @@ const Optioncomponents = () => {
                 }
             }).then((res) => {
                 if (res.status === 201) {
-                    console.log(res)
                     alert('장바구니에 추가되었습니다.')
                     history('/menu')
                 }

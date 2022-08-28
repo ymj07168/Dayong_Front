@@ -52,22 +52,7 @@ const Login = () => {
     setChecked(event.target.checked);
   };
 
-  const onhandlePost = async (data) => {
-    const { name, password } = data;
-    const postData = { name, password };
 
-    // post
-    await axios
-      .post('/member/join', postData)
-      .then(function (response) {
-        console.log(response, '성공');
-        history.push('/login');
-      })
-      .catch(function (err) {
-        console.log(err);
-        setRegisterError('회원가입에 실패하였습니다. 다시한번 확인해 주세요.');
-      });
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -86,7 +71,6 @@ const Login = () => {
     }).then((res) => 
       {
         if(res.status === 200){
-          console.log(res)
           alert('로그인 성공')
           sessionStorage.setItem('token', res.headers.authorization)
           sessionStorage.setItem('user_id', LoginData.name)

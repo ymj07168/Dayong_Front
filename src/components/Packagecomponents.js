@@ -6,6 +6,8 @@ import "../css/Order.css"
 
 
 const Packagecomponents = ({ order }) => {
+    const totalPrice = sessionStorage.getItem('price');
+
     const history = useNavigate();
 
     const [check, setCheck] = useState(false);
@@ -14,16 +16,14 @@ const Packagecomponents = ({ order }) => {
         total: 0,
         delivery: 0,
 
-        total: localStorage.price,
+        total: totalPrice,
 
     })
 
-    const totalPrice = sessionStorage.getItem('price');
 
     const { dayong, total, delivery, address } = deliver;
 
     const onClick = (e) => {
-        console.log(e.target.checked)
 
         if (e.target.checked) {
             setCheck(e.target.checked)
@@ -47,7 +47,6 @@ const Packagecomponents = ({ order }) => {
     const handleSubmit = async () => {
         await axios.post('/auth/order', deliver, { headers: { 'Authorization': sessionStorage.getItem('token') } })
             .then((res) => {
-                console.log(res)
                 if (res.status === 201) {
                     alert('주문이 완료되었습니다.')
                     history('/mapinfo')
@@ -56,7 +55,6 @@ const Packagecomponents = ({ order }) => {
     }
 
 
-    console.log(deliver)
 
     const userName = sessionStorage.getItem('user_id')
 
