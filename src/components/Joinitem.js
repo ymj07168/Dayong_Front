@@ -127,8 +127,11 @@ const Join = () => {
               fontFamily: "content"
             }}
           >
-            <Typography component="h1" variant="h5" sx={{mt: 10, fontFamily:"content", fontSize: "28px"}}>
-            <img src={face} style={{width:"60px", height: "60px", position: "absolute", top: "110px", left: "170px"}} /><br/>
+
+
+            <Typography component="h1" variant="h5" sx={{mt: 8, fontFamily: "content", fontSize:"28px"}}>
+            <img src={face} style={{width:"60px", height: "60px", position: "absolute", top: "90px", left: "170px"}} /><br/>
+
 
               회원가입
             </Typography>
