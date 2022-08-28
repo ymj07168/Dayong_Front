@@ -3,10 +3,6 @@ import Basketcomponents from "../components/Basketcomponents"
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 import '../css/Basket.css'
-import menu1 from "../image/menu1.jpg";
-import menu2 from "../image/menu2.jpg";
-import menu3 from "../image/menu3.jpg";
-import menu4 from "../image/menu4.jpg";
 import axios from "axios";
 
 
@@ -16,27 +12,7 @@ const Basket = () => {
 
 
 
-    const Menu = [
-        {
-            img: menu1,
-            name: '마약파전',
-            price: 11000,
-        },
-        {
-            img: menu2,
-            name: '김치전',
-            price: 8000,
-        },
-        {
-            img: menu3,
-            name: '모듬전',
-            price: 15000,
-        },
-        {
-            img: menu4,
-            name: '전통막걸리',
-            price: 4000,
-        }]
+
 
     const [basket, getBasket] = useState([]);
     const getBaskets = async () => {
@@ -80,11 +56,12 @@ const Basket = () => {
 
     }
 
+
     return (
         <div>
             <Navbar />
             <div className="basketcomponent">
-                {basket.map((item) => <Basketcomponents name={item.menu_name} price={item.price} image={menu1} quantity={item.num} />)}
+                {basket.map((item) => <Basketcomponents menu={item.menu_name} price={item.price}  quantity={item.num} />)}
 
             </div>
             <div className="basketprice">
