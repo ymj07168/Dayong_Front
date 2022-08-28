@@ -6,11 +6,12 @@ export default function Navi(props) {
     useEffect(() => {
         const script = document.createElement("script");
         script.innerHTML = `
-        	var map;
-	var marker_s, marker_e, marker_p1, marker_p2;
-	var totalMarkerArr = [];
-	var drawInfoArr = [];
-	var resultdrawArr = [];
+        var map;
+	    var marker_s, marker_e, marker_p1, marker_p2;
+	    var totalMarkerArr = [];
+	    var drawInfoArr = [];
+	    var resultdrawArr = [];
+        var marker;
 
         function initTmap() {
 		// 1. 지도 띄우기
@@ -23,11 +24,13 @@ export default function Navi(props) {
 			scrollwheel : true
 		    });
 
+
+            // geolocation 사용여부 확인
             if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(
 				function(position) {
-					var lat = position.coords.latitude;
-					var lon = position.coords.longitude;
+					lat = position.coords.latitude;
+					lon = position.coords.longitude;
 						
 					//팝업 생성
 					var content = "<div style=' position: relative; border-bottom: 1px solid #dcdcdc; line-height: 18px; padding: 0 35px 2px 0;'>"
@@ -35,36 +38,41 @@ export default function Navi(props) {
 							+ "<span style='display: inline-block; width: 14px; height: 14px; background-image: url(/resources/images/common/icon_blet.png); vertical-align: middle; margin-right: 5px;'></span>현재위치"
 							+ "</div>" + "</div>";
 
-					marker = new Tmapv3.Marker({
-						position : new Tmapv3.LatLng(lat,lon),
+					marker = new Tmapv2.Marker({
+						position : new Tmapv2.LatLng(lat,lon),
 						map : map
 					});
 
-					InfoWindow = new Tmapv3.InfoWindow({
-						position : new Tmapv3.LatLng(lat,lon),
+					InfoWindow = new Tmapv2.InfoWindow({
+						position : new Tmapv2.LatLng(lat,lon),
 						content : content,
-						offset : new Tmapv3.Point(0,30),
+						offset : new Tmapv2.Point(0,30),
 						type : 2,
 						map : map
 					});
-					map.setCenter(new Tmapv3.LatLng(lat,lon));
+					map.setCenter(new Tmapv2.LatLng(lat,lon));
 					map.setZoom(15);
 				});	
 		}
 
-        
-            // 2. 시작, 도착 심볼찍기
+        // 2. 시작, 도착 심볼찍기
 		// 시작
-		var marker_s = new Tmapv2.Marker(
+        if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(
+				function(position) {
+					lat = position.coords.latitude;
+					lon = position.coords.longitude;
+
+		marker_s = new Tmapv2.Marker(
 				{
-					position : new Tmapv2.LatLng(37.56689860, 126.97871544),
+					position : new Tmapv2.LatLng(lon, lat),
 					icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png",
 					iconSize : new Tmapv2.Size(24, 38),
 					map : map
 				});
 
 		// 도착
-		var marker_e = new Tmapv2.Marker(
+		marker_e = new Tmapv2.Marker(
 				{
 					position : new Tmapv2.LatLng(37.57081522, 127.00160213),
 					icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png",
@@ -73,15 +81,15 @@ export default function Navi(props) {
 				});
 
         // 3. 경로탐색 API 사용요청
-		$
-				.ajax({
+
+		    $.ajax({
 					method : "POST",
 					url : "https://apis.openapi.sk.com/tmap/routes/pedestrian?version=1&format=json&callback=result",
 					async : false,
 					data : {
 						"appKey" : "l7xxe3815aadfbc44ad2b329bd00a2be4318",
-						"startX" : "126.97871544",
-						"startY" : "37.56689860",
+						"startX" : lon,
+						"startY" : lat,
 						"endX" : "127.00160213",
 						"endY" : "37.57081522",
 						"reqCoordType" : "WGS84GEO",
@@ -92,18 +100,9 @@ export default function Navi(props) {
 					success : function(response) {
 						var resultData = response.features;
                         
-
 						//결과 출력
-						// var tDistance = "총 거리 : "
-						// 		+ ((resultData[0].properties.totalDistance) / 1000)
-						// 				.toFixed(1) + "km,";
-						// var tTime = " 총 시간 : "
-						// 		+ ((resultData[0].properties.totalTime) / 60)
-						// 				.toFixed(0) + "분";
-
-                                var tDistance = ((resultData[0].properties.totalDistance) / 1000)
-										.toFixed(1);
-                                        sessionStorage.setItem('dis', tDistance);
+                        var tDistance = ((resultData[0].properties.totalDistance) / 1000).toFixed(1);
+                        sessionStorage.setItem('dis', tDistance);
 						var tTime = ((resultData[0].properties.totalTime) / 60).toFixed(0);
                         sessionStorage.setItem('time', tTime);
 
@@ -194,6 +193,7 @@ export default function Navi(props) {
 					},
 					
 				});
+            })}
         }
 
         initTmap();

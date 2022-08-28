@@ -21,26 +21,26 @@
     position: relative;
     left: 25px;
     display: flex;
-    float:left;
+    float: left;
     background-color: #FFF4E8;
     margin-top: 20px;
 
 }
 
-.menucontent > h5{
+.menucontent>h5 {
     font-family: 'content';
     font-size: 18px;
     padding-left: 10px;
     padding-top: 5px;
-    
-    
+
+
 }
 
-.menucontent > p {
+.menucontent>p {
     padding-left: 15px;
 }
 
-.menucontent > img {
+.menucontent>img {
     border-radius: 15px;
 }
 
@@ -53,7 +53,8 @@ a {
     font-size: 30px;
 }
 
-.menuprice {e: 20px;
+.menuprice {
+    font-size: 20px;
 }
 
 .menu-img {
