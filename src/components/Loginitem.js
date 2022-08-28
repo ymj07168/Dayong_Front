@@ -64,7 +64,7 @@ const Login = () => {
       });
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const data = new FormData(e.currentTarget);
@@ -73,7 +73,7 @@ const Login = () => {
       password: data.get('password')
     };
     const { name, password } = LoginData;
-    
+
     await axios.post('login', {
       nickname: LoginData.name,
       password: LoginData.password
@@ -89,6 +89,7 @@ const Login = () => {
           alert('잘못된 로그인')
         }
       }
+    }
     )
   }
 

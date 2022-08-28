@@ -15,7 +15,7 @@ const Basket = () => {
         name: '',       //주문하는 사람 이름
         basket: {},     //장바구니에 있던 거 이름
         price: '',      //장바구니 총 가격
-        
+
     }
 
     const Menu = [
@@ -59,10 +59,10 @@ const Basket = () => {
     const Clickdelivery = () => {
         //localStorage.setItem("basketoption", JSON.stringify(basketoption))
         console.log("배달")
-    
+
     }
 
-    const Clickpackage =() => {
+    const Clickpackage = () => {
 
     }
     return (

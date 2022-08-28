@@ -16,7 +16,7 @@ export default function OrderDetail() {
     }
 
     const getOrderList = async () => {
-        const json = await (await axios.get('/auth/accounts/item', config));
+        const json = await (await axios.get('/auth/order/orderList', config));
         setOrderList(json.data);
     }
     useEffect(() => {
@@ -27,12 +27,18 @@ export default function OrderDetail() {
     return (
         <>
             <Navbar />
-            {/* {orderList.map((item) => (
-                <OrderItem 
-                key=item.id
-                id=item.id/>
-            ))} */}
-            <div className="orderItem-container">
+            <div>
+                {orderList.map((item) => (
+                    <OrderItem
+                        key={item.id}
+                        id={item.order_id}
+                        status={item.status}
+                        total={item.total}
+                        createdAt={item.created_at}
+                    />
+                ))}
+            </div>
+            {/* <div className="orderItem-container">
                 <div className="orderItem-detail">
                     <div>
                         배달상태: 배달 중<br />
@@ -43,7 +49,7 @@ export default function OrderDetail() {
                     </div>
                 </div>
                 <button>지도 확인하기</button>
-            </div>
+            </div> */}
         </>
     )
 }

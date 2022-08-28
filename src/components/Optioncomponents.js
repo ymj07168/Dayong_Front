@@ -5,12 +5,14 @@ import menu1 from "../image/menu1.jpg";
 import menu2 from "../image/menu2.jpg";
 import menu3 from "../image/menu3.jpg";
 import menu4 from "../image/menu4.jpg";
+
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Optioncomponents = () => {
 
     const [quantity, setQuantity] = useState(0);
+
     const handleIncrement = () => {
         setQuantity((prev) => prev + 1);
     }
@@ -69,6 +71,18 @@ const Optioncomponents = () => {
             }
         })
 
+
+    const onClick = () => {
+        let data = {
+            menu_name: findItem.name,
+            price: findItem.price,
+            num: quantity
+        }
+        axios.post(`/auth/menu`, data, config)
+            .then((result) => {
+                console.log(result)
+                alert("장바구니에 추가되었습니다.")
+            })
     }
     return (
         <div className='option'>
