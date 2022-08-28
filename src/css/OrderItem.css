@@ -1,5 +1,48 @@
 .orderItem-container {
-    border: 1px solid;
+    border: 3px solid #37AC82;
     padding: 10px;
     margin: 20px;
+    border-radius: 15px;
+    position: relative;
+    line-height: 30px;
+    top: 30px;
+
+}
+
+.orderItem-detail>p {
+    font-size: 18px;
+    font-family: 'content';
+}
+
+.orderItemcontainer {
+    border: 3px solid #37AC82;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 15px;
+    position: relative;
+    line-height: 30px;
+    top: 30px;
+
+}
+.orderItemcontainer >p {
+    font-size: 18px;
+    font-family: 'content';
+    text-decoration: none;
+
+}
+
+.orderItembutton {
+    border: 0px;
+    background-color: #FFF4E8;
+    padding: 5px;
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+    font-family: 'content';
+    border-radius: 15px;
+    margin-top: 5px;
+    text-decoration: none;
+    padding-left: 18px;
+    color: black;
+
 }

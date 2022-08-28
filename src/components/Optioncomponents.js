@@ -71,19 +71,8 @@ const Optioncomponents = () => {
             }
         })
 
-
-    const onClick = () => {
-        let data = {
-            menu_name: findItem.name,
-            price: findItem.price,
-            num: quantity
-        }
-        axios.post(`/auth/menu`, data, config)
-            .then((result) => {
-                console.log(result)
-                alert("장바구니에 추가되었습니다.")
-            })
     }
+    
     return (
         <div className='option'>
             <div className='menuItem-img'>
@@ -112,6 +101,7 @@ const Optioncomponents = () => {
 
     )
 }
+
 
 export default Optioncomponents;
 
