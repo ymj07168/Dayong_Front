@@ -11,11 +11,10 @@ import axios from "axios";
 
 
 const Basket = () => {
-    var price =0;
-           //장바구니에 있던 거 이름
-             //장바구니 총 가격
+    //장바구니에 있던 거 이름
+    //장바구니 총 가격
 
-    
+
 
     const Menu = [
         {
@@ -38,43 +37,42 @@ const Basket = () => {
             name: '전통막걸리',
             price: 4000,
         }]
-    
+
     const [basket, getBasket] = useState([]);
-     const getBaskets = async() => {
-         await axios.get('/auth/myMenu', {headers: {'Authorization': sessionStorage.getItem('token')}})
-         .then((res) => {
+    const getBaskets = async () => {
+        await axios.get('/auth/myMenu', { headers: { 'Authorization': sessionStorage.getItem('token') } })
+            .then((res) => {
 
-            const idfilter = res.data.filter((item) => {
-                return item.user.nickname === sessionStorage.user_id;
+                const idfilter = res.data.filter((item) => {
+                    return item.user.nickname === sessionStorage.user_id;
+                })
+
+                getBasket(idfilter)
             })
+    }
 
-            getBasket(idfilter)
-         })
-     }
+    const [cal, setCal] = useState(0);
+    var sum = 0;
+    const calculate = () => {
+        for (var i = 0; i < basket.length; i++) {
 
-     const [cal, setCal] = useState(0);
-     var sum = 0;
-     const calculate = () => {
-        for(var i = 0; i<basket.length; i++) {
-            
             sum += basket[i].price * basket[i].num
         }
         return sum
-        
-     }
+
+    }
 
     useEffect(() => {
-         getBaskets();
-         calculate();
+        getBaskets();
+        calculate();
 
     }, [])
 
-   
+
     const Clickdelivery = () => {
-        price = sum;
-        
-       localStorage.setItem("price", JSON.stringify(price))
-        console.log(localStorage)
+
+        sessionStorage.setItem('price', sum)
+        console.log(sessionStorage)
 
     }
 
@@ -86,8 +84,8 @@ const Basket = () => {
         <div>
             <Navbar />
             <div className="basketcomponent">
-            {basket.map((item) => <Basketcomponents name={item.menu_name} price={item.price} image={menu1} quantity={item.num}/>)}
-            
+                {basket.map((item) => <Basketcomponents name={item.menu_name} price={item.price} image={menu1} quantity={item.num} />)}
+
             </div>
             <div className="basketprice">
                 <p >총 {calculate()} 원</p>
