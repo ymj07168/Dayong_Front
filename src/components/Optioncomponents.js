@@ -5,9 +5,13 @@ import menu1 from "../image/menu1.jpg";
 import menu2 from "../image/menu2.jpg";
 import menu3 from "../image/menu3.jpg";
 import menu4 from "../image/menu4.jpg";
+import axios from "axios";
 
 const Optioncomponents = () => {
+    const [menuName, setMenuName] = useState('');
+    const [price, setPrice] = useState(0);
     const [quantity, setQuantity] = useState(0);
+
     const handleIncrement = () => {
         setQuantity((prev) => prev + 1);
     }
@@ -46,8 +50,24 @@ const Optioncomponents = () => {
         return item.name == menuname;
     });
 
-    const onClick = () => {
+    let config = {
+        headers: {
+            'Authorization': sessionStorage.getItem('token'),
+            'content-type': 'application/json;charset=UTF-8'
+        }
+    }
 
+    const onClick = () => {
+        let data = {
+            menu_name: findItem.name,
+            price: findItem.price,
+            num: quantity
+        }
+        axios.post(`/auth/menu`, data, config)
+            .then((result) => {
+                console.log(result)
+                alert("장바구니에 추가되었습니다.")
+            })
     }
     return (
         <div className='option'>

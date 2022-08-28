@@ -86,7 +86,7 @@ const Join = () => {
     if (!checked) alert('회원가입 약관에 동의해주세요.');
 
     if (
-      
+
       passwordRegex.test(password) &&
       password === rePassword &&
       nameRegex.test(name) &&
@@ -99,19 +99,18 @@ const Join = () => {
   const onhandlePost = async (data) => {
     const { user, name, password } = data;
     console.log(data)
-     await axios.post('join', {
-       nickname: data.name,
-       password: data.password,
-       username: data.user,
-     }).then((res) => 
-       {
-         if(res.status === 200){
-           alert('회원가입 성공')
-           sessionStorage.setItem('token', res.headers.authorization)
-           history('/main')
-         }
-       }
-     );
+    await axios.post('join', {
+      nickname: data.name,
+      password: data.password,
+      username: data.user,
+    }).then((res) => {
+      if (res.status === 200) {
+        alert('회원가입 성공')
+        sessionStorage.setItem('token', res.headers.authorization)
+        history('/main')
+      }
+    }
+    );
   };
 
   return (

@@ -3,11 +3,28 @@ import Navbar from "../components/Navbar";
 import { Link } from 'react-router-dom';
 import "../css/MyPage.css";
 import myImg from "../image/myImg.png";
+import axios from 'axios';
 
 export default function MyPage() {
 
-    const [point, setPoint] = useState(35);
-    const [orderNum, setOrderNum] = useState(1);
+    const [id, setId] = useState('');
+    const [point, setPoint] = useState(0);
+    const [orderNum, setOrderNum] = useState(0);
+
+    let config = {
+        headers: {
+            'Authorization': sessionStorage.getItem('token'),
+            'content-type': 'application/json;charset=UTF-8'
+        }
+    }
+
+    axios.get(`/auth/mypage`, config)
+        .then(
+            result => {
+                setId(result.data.user)
+                setOrderNum(result.data.주문수)
+            }
+        )
 
     return (
         <>
@@ -15,7 +32,7 @@ export default function MyPage() {
             <div className='mypage-container'>
                 <img src={myImg} style={{ width: "100px" }} />
                 <p className="myinfo">
-                    회원아이디
+                    {id}
                 </p>
                 <div className='mypage-detail'>
                     <Link to='/point-detail'><div className=' point-info'> 포인트 <br />{point}</div></Link>
