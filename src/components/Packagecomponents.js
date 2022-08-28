@@ -1,6 +1,8 @@
 import axios from "axios"
+import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from "react"
 import "../css/Order.css"
+
 
 
 const Packagecomponents = ({ order }) => {
@@ -9,21 +11,23 @@ const Packagecomponents = ({ order }) => {
         dayong: false,
         total: 0,
         delivery: 0,
-        
+
     })
 
     const { dayong, total, delivery, address } = deliver;
 
+    const history = useNavigate();
+
     const onClick = (e) => {
         console.log(e.target.checked)
 
-        if(e.target.checked) {
+        if (e.target.checked) {
             setCheck(e.target.checked)
             setDeliver({
                 ...deliver, // 기존의 input 객체를 복사한 뒤
                 dayong: e.target.checked // name 키를 가진 값을 value 로 설정
             });
-    
+
         } else {
             setCheck(e.target.checked)
 
@@ -35,7 +39,11 @@ const Packagecomponents = ({ order }) => {
         }
     }
 
-console.log(deliver)
+    console.log(deliver)
+
+    const onOrder = (e) => {
+        history('/mapInfo');
+    }
 
     return (
         <div>
@@ -53,30 +61,30 @@ console.log(deliver)
 
             <div className="ordername">
 
-                <label  className="orderInfo" htmlFor="포장용기">포장용기 여부<br/></label>
-                <input type="checkbox" name="dayong" checked={check} onChange={onClick} style={{marginLeft: "5px"}}/>
-                <label className="ordercontent" htmlFor="포장용기">&nbsp;&nbsp;포장용기 가져갈게요<br/></label>
+                <label className="orderInfo" htmlFor="포장용기">포장용기 여부<br /></label>
+                <input type="checkbox" name="dayong" checked={check} onChange={onClick} style={{ marginLeft: "5px" }} />
+                <label className="ordercontent" htmlFor="포장용기">&nbsp;&nbsp;포장용기 가져갈게요<br /></label>
 
             </div>
 
             <div className="ordername">
 
-            <p  className="orderInfo">결제수단</p>
-            <p className="ordercontent">카드결제</p>
+                <p className="orderInfo">결제수단</p>
+                <p className="ordercontent">카드결제</p>
 
             </div>
 
 
             <div className="ordername">
 
-            <p  className="orderInfo">결제금액</p>
-            <p className="ordercontent">원</p>
+                <p className="orderInfo">결제금액</p>
+                <p className="ordercontent">원</p>
 
 
             </div>
 
-            <div  className="ordersubmit">
-            <button type="submit">주문하기</button>
+            <div className="ordersubmit">
+                <button type="submit" onClick={onOrder}>주문하기</button>
 
             </div>
         </div>

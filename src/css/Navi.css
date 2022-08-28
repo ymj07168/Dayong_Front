@@ -1,0 +1,19 @@
+.mapInfo-detail {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.mapInfo-detail>p {
+    margin: 10px;
+}
+
+.possiblePoint {
+    margin-top: 5px;
+    text-align: center;
+}
+
+.compelete-btn {
+    display: flex;
+    justify-content: center;
+}
