@@ -1,23 +1,16 @@
 {
   "files": {
-    "main.css": "/smswh_front/static/css/main.1e9a46f3.css",
-    "main.js": "/smswh_front/static/js/main.730537da.js",
+    "main.css": "/smswh_front/static/css/main.4ef90ae5.css",
+    "main.js": "/smswh_front/static/js/main.3be5a980.js",
     "static/js/787.a2f2b0d2.chunk.js": "/smswh_front/static/js/787.a2f2b0d2.chunk.js",
-    "static/media/menu2.jpg": "/smswh_front/static/media/menu2.a172c23508f57bbc3263.jpg",
-    "static/media/mainImg.jpg": "/smswh_front/static/media/mainImg.73b17941740af13a3669.jpg",
-    "static/media/menu3.jpg": "/smswh_front/static/media/menu3.e6122a65a8a82c9eca6e.jpg",
-    "static/media/menu1.jpg": "/smswh_front/static/media/menu1.5caf013079383003d6b7.jpg",
-    "static/media/dayong.png": "/smswh_front/static/media/dayong.e6f01f66931792ac4a36.png",
-    "static/media/face.png": "/smswh_front/static/media/face.c7887437569ee58f3810.png",
-    "static/media/menu4.jpg": "/smswh_front/static/media/menu4.9cf5bfa49f47a34ecfa8.jpg",
     "static/media/dayongbeside.png": "/smswh_front/static/media/dayongbeside.d3b4eebdbb75f93c4603.png",
     "index.html": "/smswh_front/index.html",
-    "main.1e9a46f3.css.map": "/smswh_front/static/css/main.1e9a46f3.css.map",
-    "main.730537da.js.map": "/smswh_front/static/js/main.730537da.js.map",
+    "main.4ef90ae5.css.map": "/smswh_front/static/css/main.4ef90ae5.css.map",
+    "main.3be5a980.js.map": "/smswh_front/static/js/main.3be5a980.js.map",
     "787.a2f2b0d2.chunk.js.map": "/smswh_front/static/js/787.a2f2b0d2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1e9a46f3.css",
-    "static/js/main.730537da.js"
+    "static/css/main.4ef90ae5.css",
+    "static/js/main.3be5a980.js"
   ]
 }
