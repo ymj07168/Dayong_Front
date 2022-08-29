@@ -32,7 +32,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "http://ymj07168.github.io/smswh_front",
+  "homepage": "http://ymj07168.github.io/smsh_front",
   "eslintConfig": {
     "extends": [
       "react-app",
