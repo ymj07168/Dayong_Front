@@ -60,43 +60,42 @@
 
 ## 🔶페이지 구성(시나리오)
 
-
-<img width="200" src="https://user-images.githubusercontent.com/54874529/187075595-edad0474-3444-407a-bd30-da2d6bf3c6de.png">
 1. 홈 화면: 대표 캐릭터를 홈 화면에 배치 후 스크롤 애니메이션을 통해 회원가입으로 이동할 수 있도록 설정
-  
-<img width="200" src="https://user-images.githubusercontent.com/54874529/187075603-4a9c02ba-437c-4cbc-98c6-0326060917c4.png">  
+<img width="200" src="https://user-images.githubusercontent.com/54874529/187075595-edad0474-3444-407a-bd30-da2d6bf3c6de.png">
+
 2. 회원가입/로그인: 서비스 이용을 위해 필수적으로 회원가입 필요  
-  
-<img width="200" src="https://user-images.githubusercontent.com/54874529/187075616-06fb6d7e-ecb2-48a0-8c07-60921784a217.png">  
+<img width="200" src="https://user-images.githubusercontent.com/54874529/187075603-4a9c02ba-437c-4cbc-98c6-0326060917c4.png">  
+
 3. 음식점 정보: 주문하려는 음식점에 대한 정보 제공  
-  
-<img width="200" src="https://user-images.githubusercontent.com/54874529/187075623-3921324e-2c3b-44a3-b069-97e4cc371a87.png">  
+<img width="200" src="https://user-images.githubusercontent.com/54874529/187075616-06fb6d7e-ecb2-48a0-8c07-60921784a217.png">  
+
 4. 메뉴 리스트: 판매중인 메뉴의 사진, 이름, 가격을 보여줌  
-  
-<img width="200" src="https://user-images.githubusercontent.com/54874529/187075631-8057740a-eabf-44a0-bc45-4c2542bbeb2a.png">  
+<img width="200" src="https://user-images.githubusercontent.com/54874529/187075623-3921324e-2c3b-44a3-b069-97e4cc371a87.png">  
+
 5. 장바구니에 메뉴 추가하기: 메뉴 선택 시 가격 확인 후, 수량을 선택하여 장바구니에 추가 가능  
-  
+<img width="200" src="https://user-images.githubusercontent.com/54874529/187075631-8057740a-eabf-44a0-bc45-4c2542bbeb2a.png">  
+
+6. 장바구니: 장바구니에 담은 메뉴들의 내역 및 수량 확인 가능
 <img width="200" src="https://user-images.githubusercontent.com/54874529/187075636-8927363e-ce9e-4c53-8b1e-5c20bb9a40df.png">  
-6. 장바구니: 장바구니에 담은 메뉴들의 내역 및 수량 확인 가능  
-  
+
+7. 배달 선택시 정보 입력: 배달 주소 입력 
 <img width="200" src="https://user-images.githubusercontent.com/54874529/187075644-166a9e72-9866-43c5-8e26-b2492cb429c0.png">  
-7. 배달 선택시 정보 입력: 배달 주소 입력  
-  
-<img width="200" src="https://user-images.githubusercontent.com/54874529/187075648-e9b41657-268d-4a5b-974f-e4960fe617dc.png">  
+
 8. 포장 선택시 정보 입력: 포장용기 여부 선택 가능  
   - 포장용기 사용을 선택했을 경우, 가게까지의 거리 계산 및 적립 가능한 포인트를 확인할 수 있는 페이지로 이동  
-  
-<img width="200" src="https://user-images.githubusercontent.com/54874529/187075670-748a7b59-b7e8-4bde-9a70-cec7cb395165.png">  
+<img width="200" src="https://user-images.githubusercontent.com/54874529/187075648-e9b41657-268d-4a5b-974f-e4960fe617dc.png">  
+
 9. 음식점까지의 지도: 음식점까지의 예상거리, 소요시간, 획득 가능 포인트에 대한 정보 제공  
   - 주문수령완료 버튼 클릭시 포인트 적립  
-    
-<img width="200" src="https://user-images.githubusercontent.com/89841486/191906819-2b064d7d-5274-4c84-861c-06ce9446dae0.png">  
+<img width="200" src="https://user-images.githubusercontent.com/54874529/187075670-748a7b59-b7e8-4bde-9a70-cec7cb395165.png">  
+
 10. 마이페이지: 총 획득 포인트와 주문내역 확인 가능  
   - 주문내역 클릭시 주문내역 페이지로 이동  
+<img width="200" src="https://user-images.githubusercontent.com/89841486/191906819-2b064d7d-5274-4c84-861c-06ce9446dae0.png">  
   
-<img width="200" src="https://user-images.githubusercontent.com/89841486/191907653-591bec73-7956-42b2-8d42-1c85ca41e0e1.png">  
 11. 주문내역: 주문상태 확인 가능  
   - 지도 확인하기 버튼 클릭 시, 음식점까지의 지도 페이지(9번)로 이동  
+<img width="200" src="https://user-images.githubusercontent.com/89841486/191907653-591bec73-7956-42b2-8d42-1c85ca41e0e1.png">
 
 ---
 
